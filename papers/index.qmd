@@ -1,79 +1,69 @@
 ---
-title: Papers
+title: "My Publications"
 ---
 
-# Books
+## 2024
 
-- **von Csefalvay C** (2023). Computational Modeling of Infectious Disease: With applications in Python. Amsterdam: Elsevier. [https://elsevier.com/books/computational-modeling-of-infectious-disease/von-csefalvay/978-0-323-95389-4](https://elsevier.com/books/computational-modeling-of-infectious-disease/von-csefalvay/978-0-323-95389-4).
+- **Rohanian, O.**, Nouriborji, M., Kouchaki, S., Nooralahzadeh, F., Clifton, L., & Clifton, D. A. (2024). Exploring the effectiveness of instruction tuning in biomedical language processing. *Artificial Intelligence in Medicine, 158*, 103007. https://doi.org/10.1016/j.artmed.2024.103007
 
-- **von Csefalvay C**, Nam D T, Melis A, Halonen M, Edison S, Kozdon J, Kwong T, Glaser F, Frid Y, Szarnyas G, Crusius K, de Oliveira Castro PR, Hassler G, Clark AR, Visser M (2021). Learn Julia the Hard Way. [https://doi.org/10.5281/zenodo.4556324](https://doi.org/10.5281/zenodo.4556324)
+- Taylor, N., Ghose, U., **Rohanian, O.**, Nouriborji, M., Kormilitzin, A., Clifton, D. A., & Nevado-Holgado, A. (2024). Efficiency at scale: Investigating the performance of diminutive language models in clinical tasks. *Artificial Intelligence in Medicine, 157*, 103002. https://doi.org/10.1016/j.artmed.2024.103002
 
-<!-- references -->
+- Seminog, O., Furst, R., Mendy, T., **Rohanian, O.**, Levanita, S., Kadri-Alabi, Z., Jabin, N., Humphreys, G., Antonio, E., Bucher, A., & others. (2024). A protocol for a living mapping review of global research funding for infectious diseases with a pandemic potential—Pandemic PACT. *Wellcome Open Research, 9*, 156.
 
-# 2024
+- **Rohanian, O.**, Nouriborji, M., Jauncey, H., Kouchaki, S., Nooralahzadeh, F., Clifton, L., Merson, L., Clifton, D. A., & ISARIC Clinical Characterisation Group. (2024). Lightweight transformers for clinical natural language processing. *Natural Language Engineering, 30*(5), 887–914. https://doi.org/10.1017/S1351324924000134
 
-- **von Csefalvay C** (2024). DAEDRA: A language model for predicting outcomes in passive pharmacovigilance reporting. _arXiv_ [2402.10951](https://arxiv.org/abs/2402.10951).
+- **Rohanian, O.**, Nouriborji, M., Seminog, O., Furst, R., Mendy, T., Levanita, S., Kadri-Alabi, Z., Jabin, N., Toale, D., Humphreys, G., & others. (2024). Rapid biomedical research classification: The Pandemic PACT advanced categorisation engine. *arXiv preprint arXiv:2407.10086*.
 
-# 2023
+- Chauhan, V. K., Thakur, A., O’Donoghue, O., **Rohanian, O.**, Molaei, S., & Clifton, D. A. (2024). Continuous patient state attention model for addressing irregularity in electronic health records. *BMC Medical Informatics and Decision Making, 24*(1), 117. https://doi.org/10.1186/s12911-024-02503-4
 
-- Mogere E, Mwaura E, Waithaka M, Mutua V, Mugao M, **von Csefalvay C**, Mukamati D (2023). Juvenile polyposis syndrome: A case report. _Clinical Case Reports_ 2023;**11**:e6798. doi:[10.1002/ccr3.6798](https://doi.org/10.1002/ccr3.6798)
+- Liu, F., Li, Z., Zhou, H., Yin, Q., Yang, J., Tang, X., Luo, C., Zeng, M., Jiang, H., Gao, Y., Nigam, P., Nag, S., Yin, B., Hua, Y., Zhou, X., **Rohanian, O.**, Thakur, A., Clifton, L., & Clifton, D. A. (2024). Large language models are poor clinical decision-makers: A comprehensive benchmark. In Y. Al-Onaizan, M. Bansal, & Y.-N. Chen (Eds.), *Proceedings of the 2024 Conference on Empirical Methods in Natural Language Processing* (pp. 13696–13710). Association for Computational Linguistics. https://doi.org/10.18653/v1/2024.emnlp-main.759
 
-# 2022
+## 2023
 
-- Mutua V, Henry B, **von Csefalvay C**, Cheruiyot I, Vikse J, Lippi G, Bundi B, Mong’are N (2022). Tocilizumab in addition to standard of care in the management of COVID-19: A meta-analysis of RCTs. _Acta Bio Medica: Atenei Parmensis_ 2022;**93**. doi:[10.23750/abm.v93i1.12208](https://doi.org/10.23750/abm.v93i1.12208)
+- Rohanian, M., Nooralahzadeh, F., **Rohanian, O.**, Clifton, D., & Krauthammer, M. (2023). Disfluent cues for enhanced speech understanding in large language models. In H. Bouamor, J. Pino, & K. Bali (Eds.), *Findings of the Association for Computational Linguistics: EMNLP 2023* (pp. 3676–3684). Association for Computational Linguistics. https://doi.org/10.18653/v1/2023.findings-emnlp.238
 
-- Bundi B, Mutua V, Cheruiyot I, Munguti J, **von Csefalvay C**, Nurani K, Ogeng’o J (2022). The Unusual High Origin Radial Artery in a Black Kenyan Population: A Cadaveric Study. _Ethiopian Journal of Health Sciences_ 2022;**32**. doi:[10.4314/ejhs.v32i2.25](https://doi.org/10.4314/ejhs.v32i2.25)
+- **Rohanian, O.**, Nouriborji, M., Kouchaki, S., & Clifton, D. A. (2023). On the effectiveness of compact biomedical transformers. *Bioinformatics, 39*(3), btad103. https://doi.org/10.1093/bioinformatics/btad103
 
-- Munguti J, Mutua V, Cheruiyot I, **von Csefalvay C**, Opare-Addo P, Kiko N, Wanjiru R (2022). Tuberculous polyserositis in endemic areas with an emphasis on empiric therapy: A case report. _Medicine: Case Reports and Study Protocols_ 2022;**3**:e0221. doi:[10.1097/MD9.0000000000000221](https://doi.org/10.1097/MD9.0000000000000221)
+- **Rohanian, O.**, Jauncey, H., Nouriborji, M., Kumar, V., Gonçalves, B. P., Kartsonaki, C., ISARIC Clinical Characterisation Group, Merson, L., & Clifton, D. (2023). Using bottleneck adapters to identify cancer in clinical notes under low-resource constraints. In D. Demner-Fushman, S. Ananiadou, & K. Cohen (Eds.), *The 22nd Workshop on Biomedical Natural Language Processing and BioNLP Shared Tasks* (pp. 62–78). Association for Computational Linguistics. https://doi.org/10.18653/v1/2023.bionlp-1.5
 
-# 2021
+- Nouriborji, M., **Rohanian, O.**, Kouchaki, S., & Clifton, D. A. (2023). MiniALBERT: Model distillation via parameter-efficient recursive transformers. In A. Vlachos & I. Augenstein (Eds.), *Proceedings of the 17th Conference of the European Chapter of the Association for Computational Linguistics* (pp. 1161–1173). Association for Computational Linguistics. https://doi.org/10.18653/v1/2023.eacl-main.83
 
-- **von Csefalvay C** (2021). VAERS data reveals no increased risk of neuroautoimmune adverse events from COVID-19 vaccines. _medRxiv_. doi:[10.1101/2021.06.13.21258851](https://doi.org/10.1101/2021.06.13.21258851).
+## 2022
 
-- **von Csefalvay C** (2021). Early evidence for the safety of certain COVID-19 vaccines using empirical Bayesian modeling from VAERS. _medRxiv_. doi:[10.1101/2021.06.10.21258589](https://doi.org/10.1101/2021.06.10.21258589).
+- **Rohanian, O.**, Kouchaki, S., Soltan, A., Yang, J., Rohanian, M., Yang, Y., & Clifton, D. (2022). Privacy-aware early detection of COVID-19 through adversarial training. *IEEE Journal of Biomedical and Health Informatics, 27*(3), 1249–1258. https://doi.org/10.1109/JBHI.2022.3227749
 
-- **von Csefalvay C** (2021). A case-control study of autoimmune AEFIs following COVID-19 vaccination reported to VAERS. _medRxiv_. doi:[10.1101/2021.07.06.21260074](https://doi.org/10.1101/2021.07.06.21260074).
+- Nouriborji, M., **Rohanian, O.**, & Clifton, D. (2022). Nowruz at SemEval-2022 Task 7: Tackling cloze tests with transformers and ordinal regression. In G. Emerson, N. Schluter, G. Stanovsky, R. Kumar, A. Palmer, N. Schneider, S. Singh, & S. Ratan (Eds.), *Proceedings of the 16th International Workshop on Semantic Evaluation (SemEval-2022)* (pp. 1071–1077). Association for Computational Linguistics. https://doi.org/10.18653/v1/2022.semeval-1.151
 
-- **von Csefalvay C** (2021). Anaphylactic events in mRNA vaccines: a reporting case-control study. _medRxiv_. doi:[10.1101/2021.07.19.21260714](https://doi.org/10.1101/2021.07.19.21260714).
+- Soltan, A., Yang, J., Pattanshetty, R., Novak, A., Yang, Y., **Rohanian, O.**, Beer, S., Soltan, M., Thickett, D., Fairhead, R., & others. (2022). Real-world evaluation of AI-driven COVID-19 triage for emergency admissions: External validation & operational assessment of lab-free and high-throughput screening solutions. *Lancet Digital Health, 4*(4).
 
-- Mutua V, Mong’are N, Bundi B, **von Csefalvay C**, Oriko D, Kitunguu P (2021). Sudden bilateral lower limb paralysis with dural ectasia in Neurofibromatosis type 1: A case report. _Medicine: Case Reports and Study Protocols_ 2021;**2**:e0165. doi:[10.1097/MD9.0000000000000165](https://doi.org/10.1097/MD9.0000000000000165)
+## 2020
 
-- Mpekethu N, Mongare N, Mutua V, Wangari M, **von Csefalvay C**, Ojuka D (2021). Knowledge and attitudes of undergraduate medical students in Kenya towards solid organ donation and transplantation: Are Africa’s future clinicians prepared?. _African Journal of Nephrology_ 2021;**24**:89--94. doi:[10.21804/24-1-4843](https://doi.org/10.21804/24-1-4843)
+- **Rohanian, O.**, Rei, M., Taslimipoor, S., & Ha, L. A. (2020). Verbal multiword expressions for identification of metaphor. In D. Jurafsky, J. Chai, N. Schluter, & J. Tetreault (Eds.), *Proceedings of the 58th Annual Meeting of the Association for Computational Linguistics* (pp. 2890–2895). Association for Computational Linguistics. https://doi.org/10.18653/v1/2020.acl-main.259
 
-# 2020
+- **Rohanian, O.** (2020). Contributions to the computational treatment of non-literal language [Doctoral dissertation, University of Wolverhampton]. https://wlv.openrepository.com/server/api/core/bitstreams/c8f50e97-e3d2-4c7b-9333-1ce9fe8a9a0a/content
 
-- **von Csefalvay C**, Foldi T (2020). PAWS: Towards a globally integrated outbreak surveillance system for public health. _Zenodo_ 2020. doi:[10.5281/zenodo.3782871](https://doi.org/10.5281/zenodo.3782871)
+## 2019
 
-- Foldi T, **von Csefalvay C**, Perez N (2020). Jampi: Efficient matrix multiplication in Spark using barrier execution mode. _Big Data and Cognitive Computing_ 2020;**4**:32. doi:[10.3390/bdcc4040032](https://doi.org/10.3390/bdcc4040032)
+- Taslimipoor, S., **Rohanian, O.**, & Ha, L. A. (2019). Cross-lingual transfer learning and multitask learning for capturing multiword expressions. In A. Savary, C. P. Escartín, F. Bond, J. Mitrović, & V. B. Mititelu (Eds.), *Proceedings of the Joint Workshop on Multiword Expressions and WordNet (MWE-WN 2019)* (pp. 155–161). Association for Computational Linguistics. https://doi.org/10.18653/v1/W19-5119
 
-- **von Csefalvay C** (2020). Statistical dynamics of social distancing in SARS-CoV-2 as a differential game. _arXiv_ [2007.13734](https://arxiv.org/abs/2007.13734).
+- Taslimipoor, S., **Rohanian, O.**, & Može, S. (2019). GCN-Sem at SemEval-2019 Task 1: Semantic parsing using graph convolutional and recurrent neural networks. In J. May, E. Shutova, A. Herbelot, X. Zhu, M. Apidianaki, & S. M. Mohammad (Eds.), *Proceedings of the 13th International Workshop on Semantic Evaluation* (pp. 102–106). Association for Computational Linguistics. https://doi.org/10.18653/v1/S19-2014
 
-- **von Csefalvay C** (2020). Vector quantisation and partitioning of COVID-19 temporal dynamics in the United States. _arXiv_ [2008.00559](https://arxiv.org/abs/2008.00559).
+- **Rohanian, O.**, Taslimipoor, S., Kouchaki, S., Ha, L. A., & Mitkov, R. (2019). Bridging the gap: Attending to discontinuity in identification of multiword expressions. In J. Burstein, C. Doran, & T. Solorio (Eds.), *Proceedings of the 2019 Conference of the North American Chapter of the Association for Computational Linguistics: Human Language Technologies, Volume 1 (Long and Short Papers)* (pp. 2692–2698). Association for Computational Linguistics. https://doi.org/10.18653/v1/N19-1275
 
-# 2019
+## 2018
 
-- **von Csefalvay C** (2019). Novel quantitative indicators of digital ophthalmoscopy image quality. _arXiv_ [1903.02695](https://arxiv.org/abs/1903.02695).
+- Taslimipoor, S., & **Rohanian, O.** (2018). Shoma at PARSEME shared task on automatic identification of VMWEs: Neural multiword expression tagging with high generalisation. *arXiv preprint arXiv:1809.03056*.
 
-# 2015
+- Taslimipoor, S., **Rohanian, O.**, Ha, L. A., Corpas Pastor, G., & Mitkov, R. (2018). Wolves at SemEval-2018 Task 10: Semantic discrimination based on knowledge and association. In M. Apidianaki, S. M. Mohammad, J. May, E. Shutova, S. Bethard, & M. Carpuat (Eds.), *Proceedings of the 12th International Workshop on Semantic Evaluation* (pp. 972–976). Association for Computational Linguistics. https://doi.org/10.18653/v1/S18-1160
 
-- **von Csefalvay C** (2015). Ecological metrics of diversity in understanding social media. _arXiv_ [1501.07621](https://arxiv.org/abs/1501.07621).
+- Taslimipoor, S., **Rohanian, O.**, Mitkov, R., & Fazly, A. (2018). Identification of multiword expressions: A fresh look at modelling and evaluation. In *Multiword expressions at length and in depth: Extended papers from the MWE 2017 workshop* (Vol. 2, p. 299). Language Science Press.
 
-# 2009
+## 2017
 
-- **von Csefalvay C** (2009). On Good Intentions and Poor Outcomes: A Critical Retrospective on Chester v Afshar. _UC Dublin L. Rev._ 2009;**9**:46.
+- Yaneva, V., Orăsan, C., Evans, R., & **Rohanian, O.** (2017). Combining multiple corpora for readability assessment for people with cognitive disabilities. In J. Tetreault, J. Burstein, C. Leacock, & H. Yannakoudakis (Eds.), *Proceedings of the 12th Workshop on Innovative Use of NLP for Building Educational Applications* (pp. 121–132). Association for Computational Linguistics. https://doi.org/10.18653/v1/W17-5013
 
-# 2007
+- **Rohanian, O.**, Taslimipoor, S., Yaneva, V., & Ha, L. A. (2017). Using gaze data to predict multiword expressions. In R. Mitkov & G. Angelova (Eds.), *Proceedings of the International Conference Recent Advances in Natural Language Processing, RANLP 2017* (pp. 601–609). INCOMA Ltd. https://doi.org/10.26615/978-954-452-049-6_078
 
-- **von Csefalvay C** (2007). Taunts, Chapati Pans and the Case of the Reasonable Glue-Sniffer: An Examination of the Normative Test in Provocation after Smith and Holley. _Cambridge Student Law_ 2007:45--52. doi:[10.2139/ssrn.1334048](https://doi.org/10.2139/ssrn.1334048)
+- Taslimipoor, S., **Rohanian, O.**, Mitkov, R., & Fazly, A. (2017). Investigating the opacity of verb-noun multiword expression usages in context. In S. Markantonatou, C. Ramisch, A. Savary, & V. Vincze (Eds.), *Proceedings of the 13th Workshop on Multiword Expressions (MWE 2017)* (pp. 133–138). Association for Computational Linguistics. https://doi.org/10.18653/v1/W17-1718
 
-<!-- /references -->
-
-
-
-# Data sets
-
-Foldi, T., **von Csefalvay, C.**, Pigler, P., Wash, W., Zempleni, B., Rodrigues, J., Kapronczay, M., Huber, Sz. & Gergely, B. (2022). Starschema COVID-19 consolidated data set. 27 March 2023. [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.7774003.svg)](https://doi.org/10.5281/zenodo.7774003)
-
-**von Csefalvay, C.** (2019). 2019 Samoa measles outbreak data set. 06 December 2019. Zenodo. [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.3566012.svg)](https://doi.org/10.5281/zenodo.3566012)
-
-**von Csefalvay, C.**. (2019). CODRAS: COnsolidated Diabetic Retinopathy Assessment Set. Zenodo. [![DOI](https://doi.org/10.5281/zenodo.2573205)]
+- Yaneva, V., Taslimipoor, S., **Rohanian, O.**, & Ha, L. A. (2017). Cognitive processing of multiword expressions in native and non-native speakers of English: Evidence from gaze data. In *Computational and Corpus-Based Phraseology: Second International Conference, Europhras 2017, London, UK, November 13-14, 2017, Proceedings 2* (pp. 363–379). Springer.

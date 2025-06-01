@@ -4,5 +4,141 @@
   },
   "about.qmd": {
     "about.html": "bf011770"
+  },
+  "posts/asemantic-induction-of-hallucinations/index.qmd": {
+    "index.html": "aac71e32"
+  },
+  "posts/ransomware-prisoners-dilemma/index.qmd": {
+    "index.html": "865ac7e6"
+  },
+  "posts/team-of-rivals/index.qmd": {
+    "index.html": "742784f3"
+  },
+  "posts/quarto-project-scripts/index.qmd": {
+    "index.html": "4e7ca5f0"
+  },
+  "posts/five-wild-guesses/index.qmd": {
+    "index.html": "7df2e014"
+  },
+  "posts/a-different-shade-of-grey/index.qmd": {
+    "index.html": "43b5a648"
+  },
+  "posts/five-non-data-science-books-for-data-scientists/index.qmd": {
+    "index.html": "dfc56475"
+  },
+  "posts/ai-opportunities-action-plan/index.qmd": {
+    "index.html": "4af3b605"
+  },
+  "posts/prompt-engineering/index.qmd": {
+    "index.html": "55610a6b"
+  },
+  "posts/ai-human-interaction/index.qmd": {
+    "index.html": "061e9eef"
+  },
+  "posts/llms-language/index.qmd": {
+    "index.html": "e9873017"
+  },
+  "posts/after-agents/index.qmd": {
+    "index.html": "d06f2935"
+  },
+  "posts/julia-a-post-mortem/index.qmd": {
+    "index.html": "92d15133"
+  },
+  "posts/paxlovid/index.qmd": {
+    "index.html": "72a00956"
+  },
+  "posts/skeuomorphic-fallacy/index.qmd": {
+    "index.html": "2d083cc6"
+  },
+  "posts/dwarf-fortress/index.qmd": {
+    "index.html": "072656e7"
+  },
+  "posts/index.qmd": {
+    "index.html": "ec0a0061"
+  },
+  "posts/as-we-may-see/index.qmd": {
+    "index.html": "920e1ff2"
+  },
+  "posts/mrna-gene-therapy/index.qmd": {
+    "index.html": "8f8d2ec9"
+  },
+  "posts/skierg-marathon/skierg-marathon.ipynb": {
+    "skierg-marathon.html": "2fe863e0",
+    "skierg-marathon.out.ipynb": "e05f4c0b",
+    "skierg-marathon-preview.html": "1e356dd0"
+  },
+  "posts/skierg-marathon/index.qmd": {
+    "index.html": "623d97a8"
+  },
+  "posts/moral-maps/moral-maps.ipynb": {
+    "moral-maps.html": "7d7ce94b",
+    "moral-maps.out.ipynb": "18d3cbe1",
+    "moral-maps-preview.html": "ab97e51f"
+  },
+  "posts/moral-maps/index.qmd": {
+    "index.html": "5e28a4d0"
+  },
+  "posts/quora-answers/index.qmd": {
+    "index.html": "08f09236"
+  },
+  "posts/data-for-the-next-pandemic/index.qmd": {
+    "index.html": "9175d016"
+  },
+  "posts/academic-generative-ai/index.qmd": {
+    "index.html": "a94e8258"
+  },
+  "posts/auto-doi/index.qmd": {
+    "index.html": "60895cf0"
+  },
+  "posts/lyre-of-hephaestus/index.qmd": {
+    "index.html": "6f691df8"
+  },
+  "posts/knowledge-dividend-of-llms/index.qmd": {
+    "index.html": "8cd61beb"
+  },
+  "posts/agents-agora/index.qmd": {
+    "index.html": "a4048bab"
+  },
+  "posts/lair/index.qmd": {
+    "index.html": "32778247"
+  },
+  "posts/deepseek-seatbelts-and-straitjackets/index.qmd": {
+    "index.html": "434a4507"
+  },
+  "posts/95-percent-myth/index.qmd": {
+    "index.html": "7bdda785"
+  },
+  "disclaimer/index.qmd": {
+    "index.html": "4ad45524"
+  },
+  "papers/index.qmd": {
+    "index.html": "474b1956"
+  },
+  "talks/prometheus-unbound/index.qmd": {
+    "index.html": "65327d55"
+  },
+  "talks/index.qmd": {
+    "index.html": "c60a08d3"
+  },
+  "teaching/index.qmd": {
+    "index.html": "881b007c"
+  },
+  "media/fr-disinfectants/index.qmd": {
+    "index.html": "9b4887eb"
+  },
+  "media/tech-for-good/index.qmd": {
+    "index.html": "648ec74f"
+  },
+  "media/index.qmd": {
+    "index.html": "ac55d341"
+  },
+  "media/euronews-covid/index.qmd": {
+    "index.html": "c409e70c"
+  },
+  "posts/imia-best-paper-award/index.qmd": {
+    "index.html": "76eb7f16"
+  },
+  "bio/index.qmd": {
+    "index.html": "0f562b1e"
   }
 }

@@ -1,0 +1,21 @@
+---
+title: "IMIA Best Paper Award"
+date: 01 June 2025
+author: "Omid Rohanian"
+categories: [award]
+thumbnail: "/img/imia-award.png"
+description: "Our 2023 paper *On the effectiveness of compact biomedical transformers* was selected as one of two Best Papers in NLP worldwide by IMIA’s Yearbook of Medical Informatics."
+format:
+  html:
+    theme: cosmo
+    css: styles.css
+---
+
+![](/img/imia-award.png){fig-alt="Excerpt from IMIA Yearbook 2024 showing our paper" fig-align="center" width="65%"}
+
+Our 2023 paper on biomedical NLP has been recently chosen as one of only two Best Papers in NLP worldwide by the Yearbook of the [International Medical Informatics Association](https://en.wikipedia.org/wiki/International_Medical_Informatics_Association) (IMIA 2024). 
+This award appears in IMIA’s _Yearbook (2024 Edition)_, which compiles the most influential contributions to global medical informatics. In a field that’s always on the move, this recognition shows the lasting resonance of our work.
+
+Our suite of specialised models headlined by [CompactBioBERT](https://huggingface.co/nlpie/compact-biobert) has passed 2 million downloads in just 18 months (over 170 K this month alone). For the full model suite visit [our curated collection on Hugging Face](https://huggingface.co/collections/nlpie/compact-biomedical-models-67b743269107c46e94ad97f4)
+
+The original paper: [On the effectiveness of compact biomedical transformers](https://academic.oup.com/bioinformatics/article/39/3/btad103/7056640?login=false)

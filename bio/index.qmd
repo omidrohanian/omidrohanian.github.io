@@ -1,0 +1,12 @@
+
+![](../img/minialbert.jpg){ width=400px style="border-radius: 8px; display: block; margin-left: auto; margin-right: auto;" }
+
+
+---
+
+My name is **Omid Rohanian**. I hold a PhD in Computer Science (Natural Language Processing), and I am a researcher in computational linguistics and biomedical language processing.
+
+I am the co-developer of [CompactBioBERT](https://huggingface.co/nlpie/compact-biobert) (>2M downloads on Hugging Face), [Llama2-MedTuned](https://huggingface.co/nlpie/Llama2-MedTuned-7b), and a host of other compact language models specialised for biomedical text processing. We regularly release new models via [NLPIE Research](https://huggingface.co/nlpie).
+
+You can download my CV here:  
+[Download CV (PDF)](./cv.pdf)
