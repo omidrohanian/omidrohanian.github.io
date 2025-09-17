@@ -203,10 +203,7 @@ gtag('config', '395640625', { 'anonymize_ip': true});
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#what-are-tied-embeddings" id="toc-what-are-tied-embeddings" class="nav-link active" data-scroll-target="#what-are-tied-embeddings">What are tied Embeddings</a>
-  <ul class="collapse">
-  <li><a href="#a-real-example" id="toc-a-real-example" class="nav-link" data-scroll-target="#a-real-example">A real example</a></li>
-  </ul></li>
+  <li><a href="#a-real-example" id="toc-a-real-example" class="nav-link active" data-scroll-target="#a-real-example">A real example</a></li>
   </ul>
 </nav>
     </div>
@@ -248,8 +245,6 @@ gtag('config', '395640625', { 'anonymize_ip': true});
 </header>
 
 
-<section id="what-are-tied-embeddings" class="level1">
-<h1>What are tied Embeddings</h1>
 <p>Tied embeddings (or <em>weight tying</em>) is a small but powerful trick in language models. The idea is to use the same matrix for both the input token embedding and the output softmax layer. This reduces parameters and often improves perplexity.</p>
 <p>The trick was introduced in 2017 (<a href="https://aclanthology.org/E17-2025">Press &amp; Wolf</a>; <a href="https://arxiv.org/abs/1611.01462">Inan et al.</a>), and it was already applied in the original <em>Attention Is All You Need</em> Transformer.</p>
 <p>Many popular models such as <strong>GPT-2</strong> and <strong>BERT</strong> also use tied embeddings. However, not all open-source LLMs adopt this practice. For example, <strong>LLaMA</strong> and <strong>Mistral</strong> ship with <code>tie_word_embeddings = False</code> in their reference implementations.</p>
@@ -356,7 +351,6 @@ Observed saving  : 65,536,000</code></pre>
 <p>That is why tied embeddings are a default in many architectures, even if some modern open source models leave them disabled. In practice, teams may keep embeddings untied to allocate capacity differently and retain architectural flexibility.</p>
 
 
-</section>
 </section>
 
 </main> <!-- /main -->
