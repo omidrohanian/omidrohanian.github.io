@@ -1,8 +1,6 @@
 project:
   type: website
-
-resources:
-  - CNAME
+  output-dir: docs
 
 website:
   title: "Omid Rohanian"
