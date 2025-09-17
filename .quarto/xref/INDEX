@@ -143,5 +143,8 @@
   },
   "posts/what-are-tie-embeddings/index.qmd": {
     "index.html": "a46d54ba"
+  },
+  "posts/what-are-tie-embeddings/index.ipynb": {
+    "index.html": "6af61402"
   }
 }
