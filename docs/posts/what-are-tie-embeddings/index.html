@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.8.24">
+<meta name="generator" content="quarto-1.7.31">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -69,15 +69,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <meta name="quarto:offset" content="../../">
 <script src="../../site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="../../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
-<script src="../../site_libs/quarto-html/axe/axe-check.js" type="module"></script>
 <script src="../../site_libs/quarto-html/popper.min.js"></script>
 <script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="../../site_libs/quarto-html/anchor.min.js"></script>
 <link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-dc55a5b9e770e841cd82e46aadbfb9b0.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-e1a5c8363afafaef2c763b6775fbf3ca.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../../site_libs/bootstrap/bootstrap-84726944ca50161716877efc6624313a.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/bootstrap/bootstrap-c1fac2584b48ed01fb6e278e36375074.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -159,8 +158,6 @@ gtag('config', '395640625', { 'anonymize_ip': true});
     <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
-    <a href="../../index.html" class="navbar-brand navbar-brand-logo">
-    </a>
     <a class="navbar-brand" href="../../index.html">
     <span class="navbar-title">Omid Rohanian</span>
     </a>
@@ -254,7 +251,7 @@ gtag('config', '395640625', { 'anonymize_ip': true});
 It is small enough to load on a laptop, but large enough that parameter savings are obvious.</p>
 <p>First, we load the model as-is:</p>
 <div id="81de7d8b-4075-478a-8097-b69900d79eb6" class="cell" data-quarto-private-1="{&quot;key&quot;:&quot;execution&quot;,&quot;value&quot;:{&quot;iopub.execute_input&quot;:&quot;2025-09-17T15:26:31.700610Z&quot;,&quot;iopub.status.busy&quot;:&quot;2025-09-17T15:26:31.700359Z&quot;,&quot;iopub.status.idle&quot;:&quot;2025-09-17T15:26:36.528173Z&quot;,&quot;shell.execute_reply&quot;:&quot;2025-09-17T15:26:36.526802Z&quot;,&quot;shell.execute_reply.started&quot;:&quot;2025-09-17T15:26:31.700584Z&quot;}}" data-execution_count="1">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> transformers <span class="im">import</span> AutoTokenizer, AutoModelForCausalLM</span>
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> transformers <span class="im">import</span> AutoTokenizer, AutoModelForCausalLM</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> torch</span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> count_params(model):</span>
@@ -280,7 +277,7 @@ It is small enough to load on a laptop, but large enough that parameter savings 
 <span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a>baseline <span class="op">=</span> AutoModelForCausalLM.from_pretrained(model_id)</span>
 <span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Baseline params:"</span>, count_params(baseline))</span>
 <span id="cb1-26"><a href="#cb1-26" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Unique params  :"</span>, count_unique_params(baseline))</span>
-<span id="cb1-27"><a href="#cb1-27" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Embeddings tied?"</span>, embeddings_share_storage(baseline))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb1-27"><a href="#cb1-27" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Embeddings tied?"</span>, embeddings_share_storage(baseline))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Baseline params: 1100048384
 Unique params  : 1100048384
@@ -290,7 +287,7 @@ Embeddings tied? False</code></pre>
 <p>By default the model loads with separate weights for the input embeddings and the output head. Conceptually the large vocabulary matrix exists twice. Frameworks can report similar totals when modules share a parameter, so we also report a unique parameter count to make the saving explicit.</p>
 <p>Let’s now tie the embeddings and check the parameter counts again.</p>
 <div id="40c916db-fbdd-46fa-842d-4ede6c475111" class="cell" data-quarto-private-1="{&quot;key&quot;:&quot;execution&quot;,&quot;value&quot;:{&quot;iopub.execute_input&quot;:&quot;2025-09-17T15:26:36.530660Z&quot;,&quot;iopub.status.busy&quot;:&quot;2025-09-17T15:26:36.529630Z&quot;,&quot;iopub.status.idle&quot;:&quot;2025-09-17T15:26:37.616451Z&quot;,&quot;shell.execute_reply&quot;:&quot;2025-09-17T15:26:37.615633Z&quot;,&quot;shell.execute_reply.started&quot;:&quot;2025-09-17T15:26:36.530568Z&quot;}}" data-execution_count="2">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>tied <span class="op">=</span> AutoModelForCausalLM.from_pretrained(model_id)</span>
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>tied <span class="op">=</span> AutoModelForCausalLM.from_pretrained(model_id)</span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="co"># tie input and output embeddings</span></span>
 <span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>tied.get_output_embeddings().weight <span class="op">=</span> tied.get_input_embeddings().weight</span>
@@ -299,7 +296,7 @@ Embeddings tied? False</code></pre>
 <span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Tied params   :"</span>, count_params(tied))</span>
 <span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Unique params :"</span>, count_unique_params(tied))</span>
-<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Embeddings tied?"</span>, embeddings_share_storage(tied))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Embeddings tied?"</span>, embeddings_share_storage(tied))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Tied params   : 1034512384
 Unique params : 1034512384
@@ -310,12 +307,12 @@ Embeddings tied? True</code></pre>
 The unique parameter count drops by about <code>V × D</code>, where <code>V</code> is the vocabulary size and <code>D</code> the embedding dimension.<br>
 In TinyLlama this means a saving of over 300 million parameters — the size of the embedding matrix — without changing the model’s behaviour. Let’s double check whether this assumption holds water:</p>
 <div id="b4cc8ffd-25ae-4510-914a-fa360a81597e" class="cell" data-quarto-private-1="{&quot;key&quot;:&quot;execution&quot;,&quot;value&quot;:{&quot;iopub.execute_input&quot;:&quot;2025-09-17T15:26:37.617497Z&quot;,&quot;iopub.status.busy&quot;:&quot;2025-09-17T15:26:37.617276Z&quot;,&quot;iopub.status.idle&quot;:&quot;2025-09-17T15:26:37.624283Z&quot;,&quot;shell.execute_reply&quot;:&quot;2025-09-17T15:26:37.623490Z&quot;,&quot;shell.execute_reply.started&quot;:&quot;2025-09-17T15:26:37.617480Z&quot;}}" data-execution_count="3">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>V, D <span class="op">=</span> baseline.get_input_embeddings().weight.shape</span>
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>V, D <span class="op">=</span> baseline.get_input_embeddings().weight.shape</span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>expected <span class="op">=</span> V <span class="op">*</span> D</span>
 <span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>observed <span class="op">=</span> count_unique_params(baseline) <span class="op">-</span> count_unique_params(tied)</span>
 <span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"Vocabulary size V=</span><span class="sc">{</span>V<span class="sc">}</span><span class="ss">, embedding dim D=</span><span class="sc">{</span>D<span class="sc">}</span><span class="ss">"</span>)</span>
 <span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"Expected saving  : </span><span class="sc">{</span>expected<span class="sc">:,}</span><span class="ss">"</span>)</span>
-<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"Observed saving  : </span><span class="sc">{</span>observed<span class="sc">:,}</span><span class="ss">"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"Observed saving  : </span><span class="sc">{</span>observed<span class="sc">:,}</span><span class="ss">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Vocabulary size V=32000, embedding dim D=2048
 Expected saving  : 65,536,000
@@ -405,14 +402,13 @@ Observed saving  : 65,536,000</code></pre>
       e.clearSelection();
     }
     const getTextToCopy = function(trigger) {
-      const outerScaffold = trigger.parentElement.cloneNode(true);
-      const codeEl = outerScaffold.querySelector('code');
-      for (const childEl of codeEl.children) {
-        if (isCodeAnnotation(childEl)) {
-          childEl.remove();
+        const codeEl = trigger.previousElementSibling.cloneNode(true);
+        for (const childEl of codeEl.children) {
+          if (isCodeAnnotation(childEl)) {
+            childEl.remove();
+          }
         }
-      }
-      return codeEl.innerText;
+        return codeEl.innerText;
     }
     const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
       text: getTextToCopy

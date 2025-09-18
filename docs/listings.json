@@ -2,6 +2,7 @@
   {
     "listing": "/posts/index.html",
     "items": [
+      "/posts/a-minimal-transformer/index.html",
       "/posts/what-are-tie-embeddings/index.html",
       "/posts/imia-best-paper-award/index.html"
     ]

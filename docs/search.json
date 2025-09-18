@@ -1,5 +1,103 @@
 [
   {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Omid Rohanian",
+    "section": "",
+    "text": "I am a researcher in computational linguistics and biomedical language processing. On this site, I share project updates, research notes, and writings related to machine learning, NLP, and biomedical AI.\nFeel free to explore the posts — and connect via the links provided!"
+  },
+  {
+    "objectID": "disclaimer/index.html",
+    "href": "disclaimer/index.html",
+    "title": "Omid Rohanian",
+    "section": "",
+    "text": "All opinions expressed on this site are my own and do not represent the views of any institution or organisation I am affiliated with."
+  },
+  {
+    "objectID": "posts/what-are-tie-embeddings/index.html",
+    "href": "posts/what-are-tie-embeddings/index.html",
+    "title": "What are tied Embeddings",
+    "section": "",
+    "text": "Tied embeddings (or weight tying) is a small but powerful trick in language models. The idea is to use the same matrix for both the input token embedding and the output softmax layer. This reduces parameters and often improves perplexity.\nThe trick was introduced in 2017 (Press & Wolf; Inan et al.), and it was already applied in the original Attention Is All You Need Transformer.\nMany popular models such as GPT-2 and BERT also use tied embeddings. However, not all open-source LLMs adopt this practice. For example, LLaMA and Mistral ship with tie_word_embeddings = False in their reference implementations."
+  },
+  {
+    "objectID": "posts/what-are-tie-embeddings/index.html#a-real-example",
+    "href": "posts/what-are-tie-embeddings/index.html#a-real-example",
+    "title": "What are tied Embeddings",
+    "section": "A real example",
+    "text": "A real example\nTo see tied embeddings in action, let’s look at TinyLlama 1.1B.\nIt is small enough to load on a laptop, but large enough that parameter savings are obvious.\nFirst, we load the model as-is:\n\nfrom transformers import AutoTokenizer, AutoModelForCausalLM\nimport torch\n\ndef count_params(model):\n    return sum(p.numel() for p in model.parameters())\n\ndef count_unique_params(model):\n    seen = set()\n    total = 0\n    for p in model.parameters():\n        ptr = p.data_ptr()\n        if ptr not in seen:\n            seen.add(ptr)\n            total += p.numel()\n    return total\n\ndef embeddings_share_storage(model):\n    out = model.get_output_embeddings()\n    inp = model.get_input_embeddings()\n    return out is not None and inp is not None and out.weight.data_ptr() == inp.weight.data_ptr()\n\nmodel_id = \"TinyLlama/TinyLlama-1.1B-Chat-v1.0\"\n\nbaseline = AutoModelForCausalLM.from_pretrained(model_id)\nprint(\"Baseline params:\", count_params(baseline))\nprint(\"Unique params  :\", count_unique_params(baseline))\nprint(\"Embeddings tied?\", embeddings_share_storage(baseline))\n\nBaseline params: 1100048384\nUnique params  : 1100048384\nEmbeddings tied? False\n\n\nBy default the model loads with separate weights for the input embeddings and the output head. Conceptually the large vocabulary matrix exists twice. Frameworks can report similar totals when modules share a parameter, so we also report a unique parameter count to make the saving explicit.\nLet’s now tie the embeddings and check the parameter counts again.\n\ntied = AutoModelForCausalLM.from_pretrained(model_id)\n\n# tie input and output embeddings\ntied.get_output_embeddings().weight = tied.get_input_embeddings().weight\nif hasattr(tied, \"tie_weights\"):\n    tied.tie_weights()\n\nprint(\"Tied params   :\", count_params(tied))\nprint(\"Unique params :\", count_unique_params(tied))\nprint(\"Embeddings tied?\", embeddings_share_storage(tied))\n\nTied params   : 1034512384\nUnique params : 1034512384\nEmbeddings tied? True\n\n\nNow the input and output embeddings share the same storage.\nThe unique parameter count drops by about V × D, where V is the vocabulary size and D the embedding dimension.\nIn TinyLlama this means a saving of over 300 million parameters — the size of the embedding matrix — without changing the model’s behaviour. Let’s double check whether this assumption holds water:\n\nV, D = baseline.get_input_embeddings().weight.shape\nexpected = V * D\nobserved = count_unique_params(baseline) - count_unique_params(tied)\nprint(f\"Vocabulary size V={V}, embedding dim D={D}\")\nprint(f\"Expected saving  : {expected:,}\")\nprint(f\"Observed saving  : {observed:,}\")\n\nVocabulary size V=32000, embedding dim D=2048\nExpected saving  : 65,536,000\nObserved saving  : 65,536,000\n\n\nThis simple one line change makes the model leaner, saving memory and compute. The table below summarises the effect on parameter size:\n\n\n\nModel\nTotal params\nUnique params\nEmbeddings tied\n\n\n\n\nBaseline\n1,100,048,384\n1,100,048,384\nNo\n\n\nTied\n1,034,512,384\n1,034,512,384\nYes\n\n\n\nSaving: 65,536,000 parameters (= V × D = 32,000 × 2,048).\nThat is why tied embeddings are a default in many architectures, even if some modern open source models leave them disabled. In practice, teams may keep embeddings untied to allocate capacity differently and retain architectural flexibility."
+  },
+  {
+    "objectID": "posts/a-minimal-transformer/index.html",
+    "href": "posts/a-minimal-transformer/index.html",
+    "title": "A Minimal Transformer",
+    "section": "",
+    "text": "Self-attention is one of the core building blocks of modern deep learning. The Attention Is All You Need paper by Vaswani et al. (2017) introduced the now-standard scaled dot-product self-attention and the Transformer architecture that builds on it.\nIn this post, we’ll recreate a simple version of that Transformer and train it on a small English-Spanish dataset. The goal is not to build everything from scratch, but also not to hide all the details. We are trying to strike a balance between using the nuts and bolts of Transformers and PyTorch’s abstractions, while keeping it pedagogical and practically useful. The entirety of the core code stays under 100 lines and you should be able to run it on a basic T4 GPU on a service like Google Colab.\nI’ll walk you through data loading, building the architecture, training, and decoding."
+  },
+  {
+    "objectID": "posts/a-minimal-transformer/index.html#install-imports",
+    "href": "posts/a-minimal-transformer/index.html#install-imports",
+    "title": "A Minimal Transformer",
+    "section": "Install & Imports",
+    "text": "Install & Imports\nWe’ll install a few libraries and set things up. Also setting seeds and picking the device (GPU if available).\n\n!pip install -U datasets huggingface_hub fsspec --quiet\n\nimport warnings\nwarnings.filterwarnings('ignore')\n\nimport torch, math, random\nimport torch.nn as nn\nfrom datasets import load_dataset\nfrom transformers import AutoTokenizer\nfrom torch.nn.utils.rnn import pad_sequence\nfrom torch.utils.data import DataLoader\n\nrandom.seed(42)\ntorch.manual_seed(42)"
+  },
+  {
+    "objectID": "posts/a-minimal-transformer/index.html#configuration-tokenizer",
+    "href": "posts/a-minimal-transformer/index.html#configuration-tokenizer",
+    "title": "A Minimal Transformer",
+    "section": "Configuration & Tokenizer",
+    "text": "Configuration & Tokenizer\nNext, we’ll set a few model hyperparameters. These are deliberately chosen to keep the architecture lightweight. Feel free to tweak them if you are interested and have more compute available.\n\nMODEL_DIM: the size of the hidden representations (256)\nNHEAD: number of attention heads (4)\nNLAYER: number of Transformer layers (2)\nMAX_LEN: hard cap on tokenised sequence length (64)\n\nFor tokenization, we’ll use the pretrained MarianMT tokenizer (opus-mt-en-es). We grab the BOS (beginning of sentence), EOS (end of sentence), and PAD (padding) token IDs. In this tokenizer, pad_token_id == bos_token_id, but that’s fine for our minimal example.\n\nDEVICE = torch.device(\"cuda\" if torch.cuda.is_available() else \"cpu\")\nMODEL_DIM, MAX_LEN, NHEAD, NLAYER = 256, 64, 4, 2\n\n# MarianMT uses PAD for BOS\ntok = AutoTokenizer.from_pretrained(\"Helsinki-NLP/opus-mt-en-es\")\nBOS, EOS, PAD = tok.pad_token_id, tok.eos_token_id, tok.pad_token_id"
+  },
+  {
+    "objectID": "posts/a-minimal-transformer/index.html#encoding-batching-helpers",
+    "href": "posts/a-minimal-transformer/index.html#encoding-batching-helpers",
+    "title": "A Minimal Transformer",
+    "section": "Encoding & Batching Helpers",
+    "text": "Encoding & Batching Helpers\n\nencode(pair) takes one example (with keys [“translation”][“en”] and [“translation”][“es”])\nand returns two tensors: [BOS] + src_ids + [EOS] and [BOS] + tgt_ids + [EOS].\n\ncollate(batch) pads all sequences in a batch to the same length (using pad_sequence).\n\n\n# Encoding and batching\ndef encode(pair):\n  src = tok(pair[\"translation\"][\"en\"], truncation=True, max_length=MAX_LEN)[\"input_ids\"]\n  tgt = tok(pair[\"translation\"][\"es\"], truncation=True, max_length=MAX_LEN)[\"input_ids\"]\n  return torch.tensor([BOS]+src+[EOS]), torch.tensor([BOS]+tgt+[EOS])\n\ndef collate(batch):\n  src, tgt = zip(*[encode(x) for x in batch])\n  return pad_sequence(src, batch_first=True, padding_value=PAD), pad_sequence(tgt, batch_first=True, padding_value=PAD)"
+  },
+  {
+    "objectID": "posts/a-minimal-transformer/index.html#dataset-and-dataloader",
+    "href": "posts/a-minimal-transformer/index.html#dataset-and-dataloader",
+    "title": "A Minimal Transformer",
+    "section": "Dataset and DataLoader",
+    "text": "Dataset and DataLoader\nWe use a small slice of the data to keep experiments quick: 5% of the OPUS Books English to Spanish split. Each batch contains 128 examples, and we enable shuffling so the model sees the data in a different order each epoch. The DataLoader handles batching, padding, and device transfer for us, which keeps the training loop clean and fast.\n\n# Dataset and loader (5% for better coverage)\ndata = load_dataset(\"opus_books\", \"en-es\", split=\"train[:5%]\")\nloader = DataLoader(data, batch_size=128, collate_fn=collate, shuffle=True)"
+  },
+  {
+    "objectID": "posts/a-minimal-transformer/index.html#transformer-model",
+    "href": "posts/a-minimal-transformer/index.html#transformer-model",
+    "title": "A Minimal Transformer",
+    "section": "Transformer Model",
+    "text": "Transformer Model\nWe’re now ready to define the model architecture, using a simple PyTorch nn.Module. Our Transformer has an embedding layer with padding support, adds positional encodings, and uses PyTorch’s built-in nn.Transformer with norm_first=False to match the original post-LayerNorm design.\nIn the forward pass, we prepare three masks:\n\nsmask: masks out padding tokens in the source.\ntmask: masks out padding tokens in the target.\nseq_mask: a causal mask for the decoder, built with generate_square_subsequent_mask, which prevents each token from attending to future tokens.\n\n\nclass Transformer(nn.Module):\n  def __init__(self, vocab):\n    super().__init__()\n    self.emb = nn.Embedding(vocab, MODEL_DIM, padding_idx=PAD)\n    self.pe = PosEnc(MODEL_DIM)\n    self.tr = nn.Transformer(\n      MODEL_DIM, NHEAD,\n      num_encoder_layers=NLAYER,\n      num_decoder_layers=NLAYER,\n      dim_feedforward=2048,\n      dropout=0.1,\n      batch_first=True,\n      norm_first=False  # Post-LN as in the original Transformer paper\n    )\n    self.gen = nn.Linear(MODEL_DIM, vocab)\n  def forward(self, src, tgt):\n    smask, tmask = src == PAD, tgt == PAD\n    seq_mask = nn.Transformer.generate_square_subsequent_mask(tgt.size(1)).to(src.device)\n    src, tgt = self.pe(self.emb(src)), self.pe(self.emb(tgt))\n    return self.gen(self.tr(src, tgt, tgt_mask=seq_mask, src_key_padding_mask=smask, tgt_key_padding_mask=tmask))\n\nWith the Transformer architecture defined, it’s time to connect the training components—optimizer, scheduler, and loss—so we can actually train the model on data."
+  },
+  {
+    "objectID": "posts/a-minimal-transformer/index.html#setup-model-optimizer-scheduler-loss",
+    "href": "posts/a-minimal-transformer/index.html#setup-model-optimizer-scheduler-loss",
+    "title": "A Minimal Transformer",
+    "section": "Setup: Model, Optimizer, Scheduler, Loss",
+    "text": "Setup: Model, Optimizer, Scheduler, Loss\nWe instantiate the Transformer, configure the AdamW optimiser, and set up a scheduler that warms up for 4,000 steps then reduces the learning rate in proportion to the inverse square root of the step count. We then apply a cross-entropy loss that ignores padding tokens.\nmodel = Transformer(tok.vocab_size).to(DEVICE)\n\n# 2. Optimizer: AdamW with Vaswani hyperparams\nopt = torch.optim.AdamW(\n    model.parameters(),\n    lr=1.0,               # peak learning rate\n    betas=(0.9, 0.98),\n    eps=1e-9\n)\n\n# 3. Scheduler: warm up for 4,000 steps, then 1/√step decay\nsched = torch.optim.lr_scheduler.LambdaLR(\n    opt,\n    lambda step: min((step + 1) ** -0.5,\n                     (step + 1) * 4000 ** -1.5)\n)\n\n# 4. Loss: ignore PAD tokens so they don’t count toward loss\nloss_fn = nn.CrossEntropyLoss(ignore_index=PAD)\n\n::: {#0a9aeb7f .cell}\n``` {.python .cell-code}\nmodel = Transformer(tok.vocab_size).to(DEVICE)\nopt = torch.optim.AdamW(model.parameters(), lr=1.0, betas=(0.9, 0.98), eps=1e-9)\nsched = torch.optim.lr_scheduler.LambdaLR(opt, lambda s: min((s+1)**-0.5, (s+1)*4000**-1.5))\nloss_fn = nn.CrossEntropyLoss(ignore_index=PAD)\n:::"
+  },
+  {
+    "objectID": "posts/a-minimal-transformer/index.html#training-loop-20-epochs",
+    "href": "posts/a-minimal-transformer/index.html#training-loop-20-epochs",
+    "title": "A Minimal Transformer",
+    "section": "8. Training loop (20 epochs)",
+    "text": "8. Training loop (20 epochs)\nFor each epoch, we loop over the batches. We start by moving the source and target sequences to the device. The model takes the source together with the target sequence shifted by one token, so it learns to predict the next token at each step.\nWe calculate cross-entropy loss against the shifted target, ignoring padding tokens. Then we clear the old gradients, run backpropagation, update the model with the optimiser, and adjust the learning rate with the scheduler. At the end of each epoch, we average the batch losses and print the result to see how training is going.\n\nfor epoch in range(20):\n  model.train()\n  total_loss, n = 0, 0\n  for src, tgt in loader:\n    src, tgt = src.to(DEVICE), tgt.to(DEVICE)\n    out = model(src, tgt[:, :-1])\n    loss = loss_fn(out.reshape(-1, out.size(-1)), tgt[:, 1:].reshape(-1))\n    opt.zero_grad(); loss.backward(); opt.step(); sched.step()\n    total_loss += loss.item(); n += 1\n  print(f\"Epoch {epoch+1} Loss: {total_loss / n:.3f}\")\n\nEpoch 1 Loss: 10.441\nEpoch 2 Loss: 8.017\nEpoch 3 Loss: 5.730\nEpoch 4 Loss: 4.864\nEpoch 5 Loss: 4.200\nEpoch 6 Loss: 3.721\nEpoch 7 Loss: 3.403\nEpoch 8 Loss: 3.161\nEpoch 9 Loss: 2.946\nEpoch 10 Loss: 2.755\nEpoch 11 Loss: 2.564\nEpoch 12 Loss: 2.387\nEpoch 13 Loss: 2.221\nEpoch 14 Loss: 2.053\nEpoch 15 Loss: 1.909\nEpoch 16 Loss: 1.779\nEpoch 17 Loss: 1.662\nEpoch 18 Loss: 1.554\nEpoch 19 Loss: 1.469\nEpoch 20 Loss: 1.396"
+  },
+  {
+    "objectID": "posts/a-minimal-transformer/index.html#greedy-translation-and-a-quick-test",
+    "href": "posts/a-minimal-transformer/index.html#greedy-translation-and-a-quick-test",
+    "title": "A Minimal Transformer",
+    "section": "9 Greedy Translation and a quick test",
+    "text": "9 Greedy Translation and a quick test\nAt inference time we switch the model to evaluation mode and disable gradients. We tokenise the input string, wrap it with begin-of-sequence and end-of-sequence markers, and move everything to the selected device. The target starts as just the begin-of-sequence token.\nWe then decode greedily for up to 15 steps: at each step we run model(src, tgt), take the most probable next token, append it to tgt, and stop early if we generate the end-of-sequence token. Finally we decode the tokens between the markers, skipping special tokens, to produce a clean string.\nThe short test at the end prints an English prompt and the model’s Spanish translation.\n\n@torch.no_grad()\ndef translate(txt):\n  model.eval()\n  src = tok(txt, return_tensors=\"pt\")[\"input_ids\"][0]\n  src = torch.tensor([[BOS] + src.tolist() + [EOS]]).to(DEVICE)\n  tgt = torch.tensor([[BOS]]).to(DEVICE)\n  for _ in range(15):\n    out = model(src, tgt)\n    next = out[0, -1].argmax().item()\n    tgt = torch.cat([tgt, torch.tensor([[next]]).to(DEVICE)], dim=1)\n    if next == EOS: break\n  return tok.decode(tgt[0, 1:-1], skip_special_tokens=True)\n\n# Test\nprint(\"\\nTranslation:\")\nprint(\"EN: Hello, how are you?\")\nprint(\"ES:\", translate(\"Hello, how are you?\"))\n\n\nTranslation:\nEN: Hello, how are you?\nES: ¿Cómo está todo?"
+  },
+  {
+    "objectID": "posts/a-minimal-transformer/index.html#visualising-positional-encoding",
+    "href": "posts/a-minimal-transformer/index.html#visualising-positional-encoding",
+    "title": "A Minimal Transformer",
+    "section": "10. Visualising positional encoding",
+    "text": "10. Visualising positional encoding\nTo finish, we plot the first 50 dimensions of the positional encoding at position 1. The alternating sine and cosine waves are easy to see, and they illustrate how the model introduces positional information into the token embeddings.\nI hope this walkthrough has helped clarify some of the details, and that the code is useful as a minimal yet faithful reimplementation of Attention Is All You Need, complete with a real translation example.\n\nimport matplotlib.pyplot as plt\n\npos_enc = PosEnc(MODEL_DIM)\nexample = pos_enc.pe[0, 1, :50].cpu()\nplt.plot(example)\nplt.title(\"Positional Encoding @ Position 1 (first 50 dims)\")\nplt.xlabel(\"Dimension Index\")\nplt.ylabel(\"Value\")\nplt.show()"
+  },
+  {
     "objectID": "bio/index.html",
     "href": "bio/index.html",
     "title": "Omid Rohanian",
@@ -12,6 +110,13 @@
     "title": "IMIA Best Paper Award",
     "section": "",
     "text": "Our 2023 paper on biomedical NLP has been recently chosen as one of only two Best Papers in NLP worldwide by the Yearbook of the International Medical Informatics Association (IMIA 2024). This award appears in IMIA’s Yearbook (2024 Edition), which compiles the most influential contributions to global medical informatics. In a field that’s always on the move, this recognition shows the lasting resonance of our work.\nOur suite of specialised models headlined by CompactBioBERT has passed 2 million downloads in just 18 months (over 170 K this month alone). For the full model suite visit our curated collection on Hugging Face\nThe original paper: On the effectiveness of compact biomedical transformers"
+  },
+  {
+    "objectID": "posts/index.html",
+    "href": "posts/index.html",
+    "title": "The Notebook",
+    "section": "",
+    "text": "A Minimal Transformer\n\n\n\nnlp\n\ntranslation\n\npytorch\n\n\n\nUnder 100 lines. English to Spanish with PyTorch’s nn.Transformer and OPUS Books.\n\n\n\n\n\nSep 18, 2025\n\n\n\n\n\n\n\n\n\n\n\n\nWhat are tied Embeddings\n\n\n\nnlp\n\nembeddings\n\npytorch\n\n\n\nMinimal explanation of tied embeddings in language models with a compact real-model demo.\n\n\n\n\n\nSep 17, 2025\n\n\n\n\n\n\n\n\n\n\n\n\nIMIA Best Paper Award\n\n\n\naward\n\n\n\nOur 2023 paper On the effectiveness of compact biomedical transformers was selected as one of two Best Papers in NLP worldwide by IMIA’s Yearbook of Medical Informatics.\n\n\n\n\n\nJun 1, 2025\n\n\nOmid Rohanian\n\n\n\n\n\nNo matching items"
   },
   {
     "objectID": "papers/index.html",
@@ -68,40 +173,5 @@
     "title": "My Publications",
     "section": "2017",
     "text": "2017\n\nYaneva, V., Orăsan, C., Evans, R., & Rohanian, O. (2017). Combining multiple corpora for readability assessment for people with cognitive disabilities. In J. Tetreault, J. Burstein, C. Leacock, & H. Yannakoudakis (Eds.), Proceedings of the 12th Workshop on Innovative Use of NLP for Building Educational Applications (pp. 121–132). Association for Computational Linguistics. https://doi.org/10.18653/v1/W17-5013\nRohanian, O., Taslimipoor, S., Yaneva, V., & Ha, L. A. (2017). Using gaze data to predict multiword expressions. In R. Mitkov & G. Angelova (Eds.), Proceedings of the International Conference Recent Advances in Natural Language Processing, RANLP 2017 (pp. 601–609). INCOMA Ltd. https://doi.org/10.26615/978-954-452-049-6_078\nTaslimipoor, S., Rohanian, O., Mitkov, R., & Fazly, A. (2017). Investigating the opacity of verb-noun multiword expression usages in context. In S. Markantonatou, C. Ramisch, A. Savary, & V. Vincze (Eds.), Proceedings of the 13th Workshop on Multiword Expressions (MWE 2017) (pp. 133–138). Association for Computational Linguistics. https://doi.org/10.18653/v1/W17-1718\nYaneva, V., Taslimipoor, S., Rohanian, O., & Ha, L. A. (2017). Cognitive processing of multiword expressions in native and non-native speakers of English: Evidence from gaze data. In Computational and Corpus-Based Phraseology: Second International Conference, Europhras 2017, London, UK, November 13-14, 2017, Proceedings 2 (pp. 363–379). Springer."
-  },
-  {
-    "objectID": "disclaimer/index.html",
-    "href": "disclaimer/index.html",
-    "title": "Omid Rohanian",
-    "section": "",
-    "text": "All opinions expressed on this site are my own and do not represent the views of any institution or organisation I am affiliated with."
-  },
-  {
-    "objectID": "index.html",
-    "href": "index.html",
-    "title": "Omid Rohanian",
-    "section": "",
-    "text": "I am a researcher in computational linguistics and biomedical language processing. On this site, I share project updates, research notes, and writings related to machine learning, NLP, and biomedical AI.\nFeel free to explore the posts — and connect via the links provided!"
-  },
-  {
-    "objectID": "posts/what-are-tie-embeddings/index.html",
-    "href": "posts/what-are-tie-embeddings/index.html",
-    "title": "What are tied Embeddings",
-    "section": "",
-    "text": "Tied embeddings (or weight tying) is a small but powerful trick in language models. The idea is to use the same matrix for both the input token embedding and the output softmax layer. This reduces parameters and often improves perplexity.\nThe trick was introduced in 2017 (Press & Wolf; Inan et al.), and it was already applied in the original Attention Is All You Need Transformer.\nMany popular models such as GPT-2 and BERT also use tied embeddings. However, not all open-source LLMs adopt this practice. For example, LLaMA and Mistral ship with tie_word_embeddings = False in their reference implementations."
-  },
-  {
-    "objectID": "posts/what-are-tie-embeddings/index.html#a-real-example",
-    "href": "posts/what-are-tie-embeddings/index.html#a-real-example",
-    "title": "What are tied Embeddings",
-    "section": "A real example",
-    "text": "A real example\nTo see tied embeddings in action, let’s look at TinyLlama 1.1B.\nIt is small enough to load on a laptop, but large enough that parameter savings are obvious.\nFirst, we load the model as-is:\n\nfrom transformers import AutoTokenizer, AutoModelForCausalLM\nimport torch\n\ndef count_params(model):\n    return sum(p.numel() for p in model.parameters())\n\ndef count_unique_params(model):\n    seen = set()\n    total = 0\n    for p in model.parameters():\n        ptr = p.data_ptr()\n        if ptr not in seen:\n            seen.add(ptr)\n            total += p.numel()\n    return total\n\ndef embeddings_share_storage(model):\n    out = model.get_output_embeddings()\n    inp = model.get_input_embeddings()\n    return out is not None and inp is not None and out.weight.data_ptr() == inp.weight.data_ptr()\n\nmodel_id = \"TinyLlama/TinyLlama-1.1B-Chat-v1.0\"\n\nbaseline = AutoModelForCausalLM.from_pretrained(model_id)\nprint(\"Baseline params:\", count_params(baseline))\nprint(\"Unique params  :\", count_unique_params(baseline))\nprint(\"Embeddings tied?\", embeddings_share_storage(baseline))\n\nBaseline params: 1100048384\nUnique params  : 1100048384\nEmbeddings tied? False\n\n\nBy default the model loads with separate weights for the input embeddings and the output head. Conceptually the large vocabulary matrix exists twice. Frameworks can report similar totals when modules share a parameter, so we also report a unique parameter count to make the saving explicit.\nLet’s now tie the embeddings and check the parameter counts again.\n\ntied = AutoModelForCausalLM.from_pretrained(model_id)\n\n# tie input and output embeddings\ntied.get_output_embeddings().weight = tied.get_input_embeddings().weight\nif hasattr(tied, \"tie_weights\"):\n    tied.tie_weights()\n\nprint(\"Tied params   :\", count_params(tied))\nprint(\"Unique params :\", count_unique_params(tied))\nprint(\"Embeddings tied?\", embeddings_share_storage(tied))\n\nTied params   : 1034512384\nUnique params : 1034512384\nEmbeddings tied? True\n\n\nNow the input and output embeddings share the same storage.\nThe unique parameter count drops by about V × D, where V is the vocabulary size and D the embedding dimension.\nIn TinyLlama this means a saving of over 300 million parameters — the size of the embedding matrix — without changing the model’s behaviour. Let’s double check whether this assumption holds water:\n\nV, D = baseline.get_input_embeddings().weight.shape\nexpected = V * D\nobserved = count_unique_params(baseline) - count_unique_params(tied)\nprint(f\"Vocabulary size V={V}, embedding dim D={D}\")\nprint(f\"Expected saving  : {expected:,}\")\nprint(f\"Observed saving  : {observed:,}\")\n\nVocabulary size V=32000, embedding dim D=2048\nExpected saving  : 65,536,000\nObserved saving  : 65,536,000\n\n\nThis simple one line change makes the model leaner, saving memory and compute. The table below summarises the effect on parameter size:\n\n\n\nModel\nTotal params\nUnique params\nEmbeddings tied\n\n\n\n\nBaseline\n1,100,048,384\n1,100,048,384\nNo\n\n\nTied\n1,034,512,384\n1,034,512,384\nYes\n\n\n\nSaving: 65,536,000 parameters (= V × D = 32,000 × 2,048).\nThat is why tied embeddings are a default in many architectures, even if some modern open source models leave them disabled. In practice, teams may keep embeddings untied to allocate capacity differently and retain architectural flexibility."
-  },
-  {
-    "objectID": "posts/index.html",
-    "href": "posts/index.html",
-    "title": "The Notebook",
-    "section": "",
-    "text": "What are tied Embeddings\n\n\n\nnlp\n\nembeddings\n\npytorch\n\n\n\nMinimal explanation of tied embeddings in language models with a compact real-model demo.\n\n\n\n\n\nSep 17, 2025\n\n\n\n\n\n\n\n\n\n\n\n\nIMIA Best Paper Award\n\n\n\naward\n\n\n\nOur 2023 paper On the effectiveness of compact biomedical transformers was selected as one of two Best Papers in NLP worldwide by IMIA’s Yearbook of Medical Informatics.\n\n\n\n\n\nJun 1, 2025\n\n\nOmid Rohanian\n\n\n\n\n\nNo matching items"
   }
 ]
