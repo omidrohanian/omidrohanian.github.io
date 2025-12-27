@@ -2,6 +2,10 @@
 title: "My Publications"
 ---
 
+## 2025
+
+- Nouriborji, M., Rohanian, M., **Rohanian, O.** (2025). Improving recursive transformers with mixture of LoRAs. *arXiv preprint arXiv:2512.12880*. https://arxiv.org/abs/2512.12880
+
 ## 2024
 
 - **Rohanian, O.**, Nouriborji, M., Kouchaki, S., Nooralahzadeh, F., Clifton, L., & Clifton, D. A. (2024). Exploring the effectiveness of instruction tuning in biomedical language processing. *Artificial Intelligence in Medicine, 158*, 103007. https://doi.org/10.1016/j.artmed.2024.103007
