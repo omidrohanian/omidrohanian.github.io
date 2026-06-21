@@ -23,6 +23,6 @@ image: img/omid_rohanian.jpg
 comments: false
 ---
 
-I am an Assistant Professor at the Copenhagen Center for Social Data Science (SODAS), University of Copenhagen. My research sits at the intersection of natural language processing, machine learning, biomedical AI, and social data science.
+I develop natural language processing and machine learning methods for analysing text, clinical and biomedical data, registry data, and other complex datasets.
 
-On this site, I share project updates, research notes, publications, and occasional writing on NLP, language models, biomedical and clinical text processing, and the use of AI in scientific and social contexts.
+My work spans biomedical and clinical NLP, efficient language models, large language models, and text-as-data methods for social data science. I am especially interested in language technologies that are useful, efficient, and critically evaluated in the settings where they are deployed.
