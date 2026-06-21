@@ -19,7 +19,7 @@ website:
       #   text: Talks
 
   page-footer:
-    left: "Omid Rohanian [Disclaimer](disclaimer/index.qmd)"
+    left: "Omid Rohanian [Disclaimer](/disclaimer/)"
   twitter-card: true
   open-graph: true
   google-analytics: "395640625"
@@ -58,9 +58,6 @@ format:
           ],
           "worksFor": [
             {"@type": "Organization","name": "Copenhagen Center for Social Data Science (SODAS), University of Copenhagen"}
-          ],
-          "nationality": [
-            {"@type": "Country","name": "United Kingdom"}
           ]
         }
         </script>
