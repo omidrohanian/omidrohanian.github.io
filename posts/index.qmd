@@ -11,3 +11,5 @@ page-layout: full
 title: The Notebook
 title-block-banner: false
 ---
+
+Notes on natural language processing, machine learning, biomedical AI, and the practical details of building language systems.

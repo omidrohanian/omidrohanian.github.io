@@ -1,6 +1,6 @@
 ---
 title: "Omid Rohanian"
-subtitle: "Assistant Professor · SODAS, University of Copenhagen"
+subtitle: 'Assistant Professor · SODAS, University of Copenhagen<br><span class="research-areas">NLP · Biomedical AI · Social Data Science</span>'
 about:
   template: trestles
   links:

@@ -1,10 +1,10 @@
 :root {
-  --site-bg: #fbfaf7;
-  --site-text: #263442;
-  --site-muted: #68737d;
-  --site-accent: #3f6f91;
-  --site-accent-dark: #315d7c;
-  --site-border: #dde2e5;
+  --site-bg: #fdfdfc;
+  --site-text: #24313d;
+  --site-muted: #66727c;
+  --site-accent: #416f8d;
+  --site-accent-dark: #315b77;
+  --site-border: #e0e4e7;
 }
 
 body {
@@ -26,7 +26,7 @@ a:focus {
 
 /* Keep Quarto's navbar structure, with a quieter academic finish. */
 .navbar {
-  background-color: rgba(251, 250, 247, 0.97);
+  background-color: rgba(253, 253, 252, 0.97);
   border-bottom: 1px solid var(--site-border);
   box-shadow: none;
 }
@@ -80,6 +80,14 @@ a:focus {
   margin-bottom: 1rem;
 }
 
+.quarto-about-trestles .research-areas {
+  color: var(--site-text);
+  display: inline-block;
+  font-size: 0.9rem;
+  letter-spacing: 0.025em;
+  margin-top: 0.35rem;
+}
+
 .quarto-about-trestles .about-contents {
   color: var(--site-text);
 }
@@ -127,6 +135,25 @@ a:focus {
 .quarto-listing-category-title,
 .quarto-listing-category {
   color: var(--site-muted);
+}
+
+/* Keep long-form writing and technical material calm and legible. */
+main.content {
+  line-height: 1.65;
+}
+
+pre,
+.sourceCode {
+  background-color: #f5f6f6;
+  border-color: var(--site-border);
+  border-radius: 5px;
+}
+
+:not(pre) > code {
+  background-color: #f1f3f4;
+  border-radius: 3px;
+  color: #344c5e;
+  padding: 0.08em 0.28em;
 }
 
 .nav-footer {
