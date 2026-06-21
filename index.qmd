@@ -1,5 +1,6 @@
 ---
 title: "Omid Rohanian"
+subtitle: "Assistant Professor · SODAS, University of Copenhagen"
 about:
   template: trestles
   links:

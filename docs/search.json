@@ -163,7 +163,7 @@
   {
     "objectID": "bio/index.html",
     "href": "bio/index.html",
-    "title": "Omid Rohanian",
+    "title": "OR",
     "section": "",
     "text": "My name is Omid Rohanian. I hold a PhD in Computer Science (Natural Language Processing), and I am a researcher in computational linguistics and biomedical language processing.\nI am the co-developer of CompactBioBERT (&gt;2M downloads on Hugging Face), Llama2-MedTuned, and a host of other compact language models specialised for biomedical text processing. We regularly release new models via NLPIE Research.\nYou can download my CV here:\nDownload CV (PDF)"
   },
@@ -275,7 +275,7 @@
   {
     "objectID": "disclaimer/index.html",
     "href": "disclaimer/index.html",
-    "title": "Omid Rohanian",
+    "title": "OR",
     "section": "",
     "text": "All opinions expressed on this site are my own and do not represent the views of any institution or organisation I am affiliated with."
   },

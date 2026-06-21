@@ -66,20 +66,42 @@ a:focus {
   border-radius: 10px !important;
 }
 
+.quarto-about-trestles h1.title {
+  font-size: 1.8rem;
+  font-weight: 400;
+  margin-bottom: 0.35rem;
+}
+
+.quarto-about-trestles .subtitle {
+  color: var(--site-muted);
+  font-size: 0.98rem;
+  font-weight: 400;
+  line-height: 1.4;
+  margin-bottom: 1rem;
+}
+
 .quarto-about-trestles .about-contents {
   color: var(--site-text);
 }
 
-.about-link {
-  border-color: #b9c5cc !important;
-  border-radius: 6px !important;
+.quarto-about-trestles .about-link {
+  background-color: rgba(63, 111, 145, 0.06);
+  border-color: transparent !important;
+  border-radius: 999px !important;
   color: var(--site-accent-dark) !important;
+  padding-inline: 0.7em !important;
 }
 
-.about-link:hover,
-.about-link:focus {
-  border-color: var(--site-accent) !important;
+.quarto-about-trestles .about-link:hover,
+.quarto-about-trestles .about-link:focus {
+  background-color: rgba(63, 111, 145, 0.11);
   color: var(--site-accent) !important;
+}
+
+@media (min-width: 992px) {
+  .quarto-about-trestles .about-contents {
+    border-left-color: rgba(104, 115, 125, 0.16);
+  }
 }
 
 /* Let post listings retain Quarto's simple divided-list treatment. */
