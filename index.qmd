@@ -14,7 +14,7 @@ about:
       url: https://github.com/omidrohanian
     - text: "Email"
       icon: envelope
-      url: mailto:omid@eng.ox.ac.uk
+      url: mailto:mro@sodas.ku.dk
     - text: "Google Scholar"
       icon: google-scholar
       url: https://scholar.google.co.uk/citations?user=dwWwU0UAAAAJ&hl=en
@@ -22,7 +22,6 @@ image: img/omid_rohanian.jpg
 comments: false
 ---
 
-I am a researcher in computational linguistics and biomedical language processing. On this site, I share project updates, research notes, and writings related to machine learning, NLP, and biomedical AI.
+I am an Assistant Professor at the Copenhagen Center for Social Data Science (SODAS), University of Copenhagen. My research sits at the intersection of natural language processing, machine learning, biomedical AI, and social data science.
 
-Feel free to [explore the posts](posts/) — and connect via the links provided!
-
+On this site, I share project updates, research notes, publications, and occasional writing on NLP, language models, biomedical and clinical text processing, and the use of AI in scientific and social contexts.

@@ -1,0 +1,141 @@
+:root {
+  --site-bg: #fbfaf7;
+  --site-text: #263442;
+  --site-muted: #68737d;
+  --site-accent: #3f6f91;
+  --site-accent-dark: #315d7c;
+  --site-border: #dde2e5;
+}
+
+body {
+  background-color: var(--site-bg);
+  color: var(--site-text);
+}
+
+a {
+  color: var(--site-accent-dark);
+  text-decoration-color: rgba(63, 111, 145, 0.4);
+  text-underline-offset: 0.15em;
+}
+
+a:hover,
+a:focus {
+  color: var(--site-accent);
+  text-decoration-color: currentColor;
+}
+
+/* Keep Quarto's navbar structure, with a quieter academic finish. */
+.navbar {
+  background-color: rgba(251, 250, 247, 0.97);
+  border-bottom: 1px solid var(--site-border);
+  box-shadow: none;
+}
+
+.navbar-brand,
+.navbar-brand:hover,
+.navbar-title,
+.navbar .nav-link,
+.navbar #quarto-search.type-overlay .aa-Autocomplete svg.aa-SubmitIcon {
+  color: var(--site-text);
+}
+
+.navbar-title {
+  font-family: var(--bs-body-font-family);
+  font-weight: 600;
+}
+
+.navbar .nav-link {
+  color: var(--site-text);
+}
+
+.navbar .nav-link:hover,
+.navbar .nav-link.active {
+  color: var(--site-accent-dark);
+}
+
+.navbar-toggler {
+  border-color: var(--site-border);
+}
+
+.navbar-toggler-icon {
+  filter: invert(18%) sepia(13%) saturate(990%) hue-rotate(169deg);
+}
+
+/* Preserve the standard Trestles layout and original image dimensions. */
+.quarto-about-trestles .about-image {
+  border-radius: 10px !important;
+}
+
+.quarto-about-trestles .about-contents {
+  color: var(--site-text);
+}
+
+.about-link {
+  border-color: #b9c5cc !important;
+  border-radius: 6px !important;
+  color: var(--site-accent-dark) !important;
+}
+
+.about-link:hover,
+.about-link:focus {
+  border-color: var(--site-accent) !important;
+  color: var(--site-accent) !important;
+}
+
+/* Let post listings retain Quarto's simple divided-list treatment. */
+.quarto-listing-container-default .thumbnail-image,
+.quarto-listing-container-default .card-img-top {
+  border-radius: 6px;
+}
+
+.quarto-listing .listing-title a,
+.quarto-listing .listing-description a,
+.quarto-listing .metadata a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.quarto-listing .listing-category {
+  border-color: #c6d0d6 !important;
+  color: var(--site-accent-dark) !important;
+}
+
+.quarto-listing .listing-date,
+.quarto-listing .listing-author,
+.quarto-listing-category-title,
+.quarto-listing-category {
+  color: var(--site-muted);
+}
+
+.nav-footer {
+  background: transparent;
+  border-top: 1px solid var(--site-border);
+  color: var(--site-muted);
+}
+
+@media (max-width: 991.98px) {
+  .quarto-about-trestles .about-image {
+    height: auto;
+    max-width: min(100%, 20em);
+  }
+
+  .quarto-about-trestles .about-contents {
+    margin-inline: auto;
+    max-width: 650px;
+    width: 100%;
+  }
+}
+
+@media (max-width: 767.98px) {
+  .navbar-collapse {
+    padding-top: 0.5rem;
+  }
+
+  .quarto-about-trestles .about-image {
+    max-width: min(78vw, 18em);
+  }
+
+  .quarto-about-trestles .about-entity .about-links {
+    row-gap: 0.6rem;
+  }
+}

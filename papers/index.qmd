@@ -2,6 +2,10 @@
 title: "My Publications"
 ---
 
+## 2026
+
+- Nooralahzadeh, F., **Rohanian, O.**, Zhang, Y., Fürst, J., & Stockinger, K. (2026). Arbitration failure, not perceptual blindness: How vision-language models resolve visual-linguistic conflicts. *arXiv preprint arXiv:2604.09364*. https://arxiv.org/abs/2604.09364
+
 ## 2025
 
 - Nouriborji, M., Rohanian, M., **Rohanian, O.** (2025). Improving recursive transformers with mixture of LoRAs. *arXiv preprint arXiv:2512.12880*. https://arxiv.org/abs/2512.12880

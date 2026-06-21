@@ -2,13 +2,16 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.7.31">
+<meta name="generator" content="quarto-1.9.38">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
 <title>Omid Rohanian</title>
 <style>
+/* Default styles provided by pandoc.
+** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+*/
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
 div.columns{display: flex; gap: min(4vw, 1.5em);}
@@ -35,10 +38,10 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
 <link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-e1a5c8363afafaef2c763b6775fbf3ca.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-15634bcf2e68342d4ad2dfa704d543f6.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-c1fac2584b48ed01fb6e278e36375074.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-158031087360bce0ff56dc785ce39e06.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -80,15 +83,14 @@ gtag('config', '395640625', { 'anonymize_ip': true});
   "@context": "http://www.schema.org",
   "@type": "Person",
   "name": "Omid Rohanian",
-  "jobTitle": "Senior Research Associate, NLP & Biomedical AI",
-  "description": "Omid Rohanian is a Senior Research Associate at the University of Oxford specializing in natural language processing, biomedical text analysis, and compact transformer models.",
+  "jobTitle": "Assistant Professor",
+  "description": "Omid Rohanian is an Assistant Professor at the Copenhagen Center for Social Data Science (SODAS), University of Copenhagen, working across natural language processing, machine learning, biomedical AI, and social data science.",
   "url": "https://omidrohanian.github.io",
   "image": "https://omidrohanian.github.io/img/minialbert.jpg",
   "address": {
     "@type": "PostalAddress",
-    "addressLocality": "Oxford",
-    "addressRegion": "OX",
-    "addressCountry": "United Kingdom"
+    "addressLocality": "Copenhagen",
+    "addressCountry": "Denmark"
   },
   "alumniOf": [
     {"@type": "CollegeOrUniversity","name": "University of Oxford"},
@@ -96,7 +98,7 @@ gtag('config', '395640625', { 'anonymize_ip': true});
     {"@type": "CollegeOrUniversity","name": "Sharif University of Technology"}
   ],
   "worksFor": [
-    {"@type": "Organization","name": "University of Oxford"}
+    {"@type": "Organization","name": "Copenhagen Center for Social Data Science (SODAS), University of Copenhagen"}
   ],
   "nationality": [
     {"@type": "Country","name": "United Kingdom"}
@@ -105,12 +107,13 @@ gtag('config', '395640625', { 'anonymize_ip': true});
 </script>
 
 
+<link rel="stylesheet" href="styles.css">
 <meta property="og:title" content="Omid Rohanian">
-<meta property="og:description" content="Omid Rohanian is a Senior Research Associate at the University of Oxford specialising in NLP and biomedical AI.">
+<meta property="og:description" content="Omid Rohanian is an Assistant Professor at SODAS, University of Copenhagen, working across NLP, machine learning, biomedical AI, and social data science.">
 <meta property="og:image" content="img/omid_rohanian.jpg">
 <meta property="og:site_name" content="Omid Rohanian">
 <meta name="twitter:title" content="Omid Rohanian">
-<meta name="twitter:description" content="Omid Rohanian is a Senior Research Associate at the University of Oxford specialising in NLP and biomedical AI.">
+<meta name="twitter:description" content="Omid Rohanian is an Assistant Professor at SODAS, University of Copenhagen, working across NLP, machine learning, biomedical AI, and social data science.">
 <meta name="twitter:image" content="img/omid_rohanian.jpg">
 <meta name="twitter:card" content="summary_large_image">
 </head>
@@ -185,7 +188,7 @@ gtag('config', '395640625', { 'anonymize_ip': true});
     <i class="bi bi-github"></i>
      <span class="about-link-text">GitHub</span>
   </a>
-  <a href="mailto:omid@eng.ox.ac.uk" class="about-link" rel="" target="">
+  <a href="mailto:mro@sodas.ku.dk" class="about-link" rel="" target="">
     <i class="bi bi-envelope"></i>
      <span class="about-link-text">Email</span>
   </a>
@@ -196,8 +199,8 @@ gtag('config', '395640625', { 'anonymize_ip': true});
 </div>
   </div>
   <div class="about-contents"><main class="content" id="quarto-document-content">
-<p>I am a researcher in computational linguistics and biomedical language processing. On this site, I share project updates, research notes, and writings related to machine learning, NLP, and biomedical AI.</p>
-<p>Feel free to <a href="posts/">explore the posts</a> — and connect via the links provided!</p>
+<p>I am an Assistant Professor at the Copenhagen Center for Social Data Science (SODAS), University of Copenhagen. My research sits at the intersection of natural language processing, machine learning, biomedical AI, and social data science.</p>
+<p>On this site, I share project updates, research notes, publications, and occasional writing on NLP, language models, biomedical and clinical text processing, and the use of AI in scientific and social contexts.</p>
 
 
 </main></div>
@@ -247,13 +250,14 @@ gtag('config', '395640625', { 'anonymize_ip': true});
       e.clearSelection();
     }
     const getTextToCopy = function(trigger) {
-        const codeEl = trigger.previousElementSibling.cloneNode(true);
-        for (const childEl of codeEl.children) {
-          if (isCodeAnnotation(childEl)) {
-            childEl.remove();
-          }
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
         }
-        return codeEl.innerText;
+      }
+      return codeEl.innerText;
     }
     const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
       text: getTextToCopy

@@ -4,7 +4,7 @@ project:
 
 website:
   title: "Omid Rohanian"
-  description: "Omid Rohanian is a Senior Research Associate at the University of Oxford specialising in NLP and biomedical AI."
+  description: "Omid Rohanian is an Assistant Professor at SODAS, University of Copenhagen, working across NLP, machine learning, biomedical AI, and social data science."
   navbar:
     left:
       - href: index.qmd
@@ -28,7 +28,7 @@ format:
   html:
     theme:
       - cosmo
-      - custom.scss
+    css: styles.css
     toc: true
     toc_depth: 3
     toc_float: true
@@ -42,15 +42,14 @@ format:
           "@context": "http://www.schema.org",
           "@type": "Person",
           "name": "Omid Rohanian",
-          "jobTitle": "Senior Research Associate, NLP & Biomedical AI",
-          "description": "Omid Rohanian is a Senior Research Associate at the University of Oxford specializing in natural language processing, biomedical text analysis, and compact transformer models.",
+          "jobTitle": "Assistant Professor",
+          "description": "Omid Rohanian is an Assistant Professor at the Copenhagen Center for Social Data Science (SODAS), University of Copenhagen, working across natural language processing, machine learning, biomedical AI, and social data science.",
           "url": "https://omidrohanian.github.io",
           "image": "https://omidrohanian.github.io/img/minialbert.jpg",
           "address": {
             "@type": "PostalAddress",
-            "addressLocality": "Oxford",
-            "addressRegion": "OX",
-            "addressCountry": "United Kingdom"
+            "addressLocality": "Copenhagen",
+            "addressCountry": "Denmark"
           },
           "alumniOf": [
             {"@type": "CollegeOrUniversity","name": "University of Oxford"},
@@ -58,7 +57,7 @@ format:
             {"@type": "CollegeOrUniversity","name": "Sharif University of Technology"}
           ],
           "worksFor": [
-            {"@type": "Organization","name": "University of Oxford"}
+            {"@type": "Organization","name": "Copenhagen Center for Social Data Science (SODAS), University of Copenhagen"}
           ],
           "nationality": [
             {"@type": "Country","name": "United Kingdom"}
