@@ -1,16 +1,38 @@
 ---
 title: "Publications"
+toc: true
+toc-title: "Years"
+toc-depth: 3
 ---
 
-## 2026
+This publication record spans language modelling, biomedical and clinical NLP, efficient models, and multimodal AI. For a broader view of my citation profile, see <a href="https://scholar.google.co.uk/citations?user=dwWwU0UAAAAJ&hl=en">Google Scholar</a>.
 
-- Nooralahzadeh, F., **Rohanian, O.**, Zhang, Y., Fürst, J., & Stockinger, K. (2026). Arbitration failure, not perceptual blindness: How vision-language models resolve visual-linguistic conflicts. *arXiv preprint arXiv:2604.09364*. https://arxiv.org/abs/2604.09364
+<div class="featured-paper-card">
+  <span class="featured-paper-badge">Accepted · COLM 2026</span>
+  <span class="featured-paper-label">Vision-language model interpretability</span>
+  <h3><a href="https://arxiv.org/abs/2604.09364">Arbitration Failure, Not Perceptual Blindness: How Vision-Language Models Resolve Visual-Linguistic Conflicts</a></h3>
+  <p class="featured-paper-authors">Farhad Nooralahzadeh, <strong>Omid Rohanian</strong>, Yi Zhang, Jonathan Fürst, and Kurt Stockinger</p>
+  <p class="featured-paper-summary">The paper examines cases in which vision-language models appear to encode the relevant visual evidence yet still answer according to conflicting linguistic priors. It investigates where this arbitration failure arises.</p>
+  <div class="featured-paper-actions">
+    <a class="featured-paper-action" href="https://arxiv.org/abs/2604.09364">Paper</a>
+    <a class="featured-paper-action" href="https://openreview.net/forum?id=o3pc99Q3Mi">OpenReview</a>
+    <a class="featured-paper-action" href="https://colmweb.org/">COLM 2026</a>
+  </div>
+</div>
 
-## 2025
+## Publications by year
+
+<div class="publication-list">
+
+### 2026
+
+- Nooralahzadeh, F., **Rohanian, O.**, Zhang, Y., Fürst, J., & Stockinger, K. (2026). [Arbitration failure, not perceptual blindness: How vision-language models resolve visual-linguistic conflicts](https://arxiv.org/abs/2604.09364). Accepted at the Conference on Language Modeling (COLM 2026). [OpenReview](https://openreview.net/forum?id=o3pc99Q3Mi), [COLM 2026](https://colmweb.org/)
+
+### 2025
 
 - Nouriborji, M., Rohanian, M., **Rohanian, O.** (2025). Improving recursive transformers with mixture of LoRAs. *arXiv preprint arXiv:2512.12880*. https://arxiv.org/abs/2512.12880
 
-## 2024
+### 2024
 
 - **Rohanian, O.**, Nouriborji, M., Kouchaki, S., Nooralahzadeh, F., Clifton, L., & Clifton, D. A. (2024). Exploring the effectiveness of instruction tuning in biomedical language processing. *Artificial Intelligence in Medicine, 158*, 103007. https://doi.org/10.1016/j.artmed.2024.103007
 
@@ -26,7 +48,7 @@ title: "Publications"
 
 - Liu, F., Li, Z., Zhou, H., Yin, Q., Yang, J., Tang, X., Luo, C., Zeng, M., Jiang, H., Gao, Y., Nigam, P., Nag, S., Yin, B., Hua, Y., Zhou, X., **Rohanian, O.**, Thakur, A., Clifton, L., & Clifton, D. A. (2024). Large language models are poor clinical decision-makers: A comprehensive benchmark. In Y. Al-Onaizan, M. Bansal, & Y.-N. Chen (Eds.), *Proceedings of the 2024 Conference on Empirical Methods in Natural Language Processing* (pp. 13696–13710). Association for Computational Linguistics. https://doi.org/10.18653/v1/2024.emnlp-main.759
 
-## 2023
+### 2023
 
 - Rohanian, M., Nooralahzadeh, F., **Rohanian, O.**, Clifton, D., & Krauthammer, M. (2023). Disfluent cues for enhanced speech understanding in large language models. In H. Bouamor, J. Pino, & K. Bali (Eds.), *Findings of the Association for Computational Linguistics: EMNLP 2023* (pp. 3676–3684). Association for Computational Linguistics. https://doi.org/10.18653/v1/2023.findings-emnlp.238
 
@@ -36,7 +58,7 @@ title: "Publications"
 
 - Nouriborji, M., **Rohanian, O.**, Kouchaki, S., & Clifton, D. A. (2023). MiniALBERT: Model distillation via parameter-efficient recursive transformers. In A. Vlachos & I. Augenstein (Eds.), *Proceedings of the 17th Conference of the European Chapter of the Association for Computational Linguistics* (pp. 1161–1173). Association for Computational Linguistics. https://doi.org/10.18653/v1/2023.eacl-main.83
 
-## 2022
+### 2022
 
 - **Rohanian, O.**, Kouchaki, S., Soltan, A., Yang, J., Rohanian, M., Yang, Y., & Clifton, D. (2022). Privacy-aware early detection of COVID-19 through adversarial training. *IEEE Journal of Biomedical and Health Informatics, 27*(3), 1249–1258. https://doi.org/10.1109/JBHI.2022.3227749
 
@@ -44,13 +66,13 @@ title: "Publications"
 
 - Soltan, A., Yang, J., Pattanshetty, R., Novak, A., Yang, Y., **Rohanian, O.**, Beer, S., Soltan, M., Thickett, D., Fairhead, R., & others. (2022). Real-world evaluation of AI-driven COVID-19 triage for emergency admissions: External validation & operational assessment of lab-free and high-throughput screening solutions. *Lancet Digital Health, 4*(4).
 
-## 2020
+### 2020
 
 - **Rohanian, O.**, Rei, M., Taslimipoor, S., & Ha, L. A. (2020). Verbal multiword expressions for identification of metaphor. In D. Jurafsky, J. Chai, N. Schluter, & J. Tetreault (Eds.), *Proceedings of the 58th Annual Meeting of the Association for Computational Linguistics* (pp. 2890–2895). Association for Computational Linguistics. https://doi.org/10.18653/v1/2020.acl-main.259
 
 - **Rohanian, O.** (2020). Contributions to the computational treatment of non-literal language [Doctoral dissertation, University of Wolverhampton]. https://wlv.openrepository.com/server/api/core/bitstreams/c8f50e97-e3d2-4c7b-9333-1ce9fe8a9a0a/content
 
-## 2019
+### 2019
 
 - Taslimipoor, S., **Rohanian, O.**, & Ha, L. A. (2019). Cross-lingual transfer learning and multitask learning for capturing multiword expressions. In A. Savary, C. P. Escartín, F. Bond, J. Mitrović, & V. B. Mititelu (Eds.), *Proceedings of the Joint Workshop on Multiword Expressions and WordNet (MWE-WN 2019)* (pp. 155–161). Association for Computational Linguistics. https://doi.org/10.18653/v1/W19-5119
 
@@ -58,7 +80,7 @@ title: "Publications"
 
 - **Rohanian, O.**, Taslimipoor, S., Kouchaki, S., Ha, L. A., & Mitkov, R. (2019). Bridging the gap: Attending to discontinuity in identification of multiword expressions. In J. Burstein, C. Doran, & T. Solorio (Eds.), *Proceedings of the 2019 Conference of the North American Chapter of the Association for Computational Linguistics: Human Language Technologies, Volume 1 (Long and Short Papers)* (pp. 2692–2698). Association for Computational Linguistics. https://doi.org/10.18653/v1/N19-1275
 
-## 2018
+### 2018
 
 - Taslimipoor, S., & **Rohanian, O.** (2018). Shoma at PARSEME shared task on automatic identification of VMWEs: Neural multiword expression tagging with high generalisation. *arXiv preprint arXiv:1809.03056*.
 
@@ -66,7 +88,7 @@ title: "Publications"
 
 - Taslimipoor, S., **Rohanian, O.**, Mitkov, R., & Fazly, A. (2018). Identification of multiword expressions: A fresh look at modelling and evaluation. In *Multiword expressions at length and in depth: Extended papers from the MWE 2017 workshop* (Vol. 2, p. 299). Language Science Press.
 
-## 2017
+### 2017
 
 - Yaneva, V., Orăsan, C., Evans, R., & **Rohanian, O.** (2017). Combining multiple corpora for readability assessment for people with cognitive disabilities. In J. Tetreault, J. Burstein, C. Leacock, & H. Yannakoudakis (Eds.), *Proceedings of the 12th Workshop on Innovative Use of NLP for Building Educational Applications* (pp. 121–132). Association for Computational Linguistics. https://doi.org/10.18653/v1/W17-5013
 
@@ -75,3 +97,5 @@ title: "Publications"
 - Taslimipoor, S., **Rohanian, O.**, Mitkov, R., & Fazly, A. (2017). Investigating the opacity of verb-noun multiword expression usages in context. In S. Markantonatou, C. Ramisch, A. Savary, & V. Vincze (Eds.), *Proceedings of the 13th Workshop on Multiword Expressions (MWE 2017)* (pp. 133–138). Association for Computational Linguistics. https://doi.org/10.18653/v1/W17-1718
 
 - Yaneva, V., Taslimipoor, S., **Rohanian, O.**, & Ha, L. A. (2017). Cognitive processing of multiword expressions in native and non-native speakers of English: Evidence from gaze data. In *Computational and Corpus-Based Phraseology: Second International Conference, Europhras 2017, London, UK, November 13-14, 2017, Proceedings 2* (pp. 363–379). Springer.
+
+</div>

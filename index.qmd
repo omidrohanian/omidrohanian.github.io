@@ -26,3 +26,8 @@ comments: false
 I develop natural language processing and machine learning methods for analysing text, clinical and biomedical data, registry data, and other complex datasets.
 
 My work spans biomedical and clinical NLP, efficient language models, large language models, and text-as-data methods for social data science. I am especially interested in language technologies that are useful, efficient, and critically evaluated in the settings where they are deployed.
+
+<div class="latest-highlight">
+  <span class="latest-label">Latest</span>
+  <strong><a href="https://arxiv.org/abs/2604.09364">Arbitration Failure, Not Perceptual Blindness</a></strong> was accepted at <a href="https://colmweb.org/">COLM 2026</a>. The paper studies cases where vision-language models encode the relevant visual evidence but still follow conflicting linguistic priors; <a href="https://openreview.net/forum?id=o3pc99Q3Mi">OpenReview</a>.
+</div>
