@@ -1,0 +1,51 @@
+/*-- scss:defaults --*/
+
+$primary: #83aec8;
+$secondary: #9ba8b1;
+$body-bg: #171c20;
+$body-color: #dce3e7;
+$link-color: #a1c6da;
+$navbar-bg: #171c20;
+$navbar-fg: #dce3e7;
+$navbar-hl: #a1c6da;
+$footer-bg: #171c20;
+$footer-fg: #9ba8b1;
+$border-color: #343e45;
+$code-block-bg: #20272c;
+$code-bg: #242d33;
+$code-color: #c7d7e0;
+$toc-color: #9ba8b1;
+$toc-active-border: #83aec8;
+$toc-inactive-border: #343e45;
+$card-bg: #1e252a;
+$input-bg: #1e252a;
+$input-color: #dce3e7;
+$input-border-color: #343e45;
+$dropdown-bg: #1e252a;
+$dropdown-color: #dce3e7;
+$dropdown-link-color: #dce3e7;
+$dropdown-link-hover-bg: rgba(131, 174, 200, 0.16);
+$popover-bg: #1e252a;
+$popover-body-color: #dce3e7;
+
+/*-- scss:rules --*/
+
+body.quarto-dark {
+  --site-bg: #171c20;
+  --site-surface: #1e252a;
+  --site-surface-soft: #20272c;
+  --site-text: #dce3e7;
+  --site-muted: #9ba8b1;
+  --site-accent: #83aec8;
+  --site-accent-dark: #a1c6da;
+  --site-border: #343e45;
+  --site-navbar-bg: rgba(23, 28, 32, 0.97);
+  --site-accent-wash: rgba(131, 174, 200, 0.10);
+  --site-accent-wash-hover: rgba(131, 174, 200, 0.16);
+  --site-highlight-start: rgba(131, 174, 200, 0.13);
+  --site-highlight-end: rgba(131, 174, 200, 0.05);
+  --site-highlight-border: rgba(131, 174, 200, 0.22);
+  --site-category-border: #47545d;
+  --site-toggle-bg: rgba(131, 174, 200, 0.09);
+  --site-toggle-hover-bg: rgba(131, 174, 200, 0.16);
+}

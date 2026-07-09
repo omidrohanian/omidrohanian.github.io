@@ -1,20 +1,6 @@
-:root {
-  --site-bg: #fdfdfc;
-  --site-text: #24313d;
-  --site-muted: #66727c;
-  --site-accent: #416f8d;
-  --site-accent-dark: #315b77;
-  --site-border: #e0e4e7;
-}
-
-body {
-  background-color: var(--site-bg);
-  color: var(--site-text);
-}
-
 a {
   color: var(--site-accent-dark);
-  text-decoration-color: rgba(63, 111, 145, 0.4);
+  text-decoration-color: var(--site-accent);
   text-underline-offset: 0.15em;
 }
 
@@ -26,7 +12,7 @@ a:focus {
 
 /* Keep Quarto's navbar structure, with a quieter academic finish. */
 .navbar {
-  background-color: rgba(253, 253, 252, 0.97);
+  background-color: var(--site-navbar-bg);
   border-bottom: 1px solid var(--site-border);
   box-shadow: none;
 }
@@ -55,10 +41,6 @@ a:focus {
 
 .navbar-toggler {
   border-color: var(--site-border);
-}
-
-.navbar-toggler-icon {
-  filter: invert(18%) sepia(13%) saturate(990%) hue-rotate(169deg);
 }
 
 /* Preserve the standard Trestles layout and original image dimensions. */
@@ -93,7 +75,7 @@ a:focus {
 }
 
 .quarto-about-trestles .about-link {
-  background-color: rgba(63, 111, 145, 0.06);
+  background-color: var(--site-accent-wash);
   border-color: transparent !important;
   border-radius: 999px !important;
   color: var(--site-accent-dark) !important;
@@ -102,19 +84,24 @@ a:focus {
 
 .quarto-about-trestles .about-link:hover,
 .quarto-about-trestles .about-link:focus {
-  background-color: rgba(63, 111, 145, 0.11);
+  background-color: var(--site-accent-wash-hover);
   color: var(--site-accent) !important;
 }
 
 @media (min-width: 992px) {
   .quarto-about-trestles .about-contents {
-    border-left-color: rgba(104, 115, 125, 0.16);
+    border-left-color: var(--site-border);
   }
 }
 
 .latest-highlight {
-  background: linear-gradient(90deg, rgba(65, 111, 141, 0.08), rgba(65, 111, 141, 0.03));
-  border: 1px solid rgba(65, 111, 141, 0.16);
+  background:
+    linear-gradient(
+      90deg,
+      var(--site-highlight-start),
+      var(--site-highlight-end)
+    );
+  border: 1px solid var(--site-highlight-border);
   border-radius: 0.8rem;
   color: var(--site-text);
   margin: 1.25rem 0 1.5rem;
@@ -153,7 +140,7 @@ a:focus {
 }
 
 .quarto-listing .listing-category {
-  border-color: #c6d0d6 !important;
+  border-color: var(--site-category-border) !important;
   color: var(--site-accent-dark) !important;
 }
 
@@ -171,16 +158,51 @@ main.content {
 
 pre,
 .sourceCode {
-  background-color: #f5f6f6;
   border-color: var(--site-border);
   border-radius: 5px;
 }
 
 :not(pre) > code {
-  background-color: #f1f3f4;
   border-radius: 3px;
-  color: #344c5e;
   padding: 0.08em 0.28em;
+}
+
+a.quarto-color-scheme-toggle {
+  align-items: center;
+  background: var(--site-toggle-bg);
+  border: 1px solid var(--site-border);
+  border-radius: 999px;
+  color: var(--site-accent-dark);
+  display: inline-flex;
+  height: 1.9rem;
+  justify-content: center;
+  margin-inline: 0.15rem;
+  padding: 0 !important;
+  text-decoration: none;
+  transition:
+    background-color 160ms ease,
+    border-color 160ms ease,
+    color 160ms ease,
+    transform 160ms ease;
+  width: 2.2rem;
+}
+
+a.quarto-color-scheme-toggle:hover {
+  background: var(--site-toggle-hover-bg);
+  border-color: var(--site-accent);
+  color: var(--site-accent-dark);
+  text-decoration: none;
+}
+
+a.quarto-color-scheme-toggle:focus-visible {
+  box-shadow: 0 0 0 0.2rem var(--site-accent-wash-hover);
+  outline: none;
+}
+
+.quarto-color-scheme-toggle .bi::before {
+  height: 1rem;
+  width: 1rem;
+  background-size: 1rem 1rem;
 }
 
 .nav-footer {
@@ -217,5 +239,11 @@ pre,
 
   .quarto-about-trestles .about-entity .about-links {
     row-gap: 0.6rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  a.quarto-color-scheme-toggle {
+    transition: none;
   }
 }

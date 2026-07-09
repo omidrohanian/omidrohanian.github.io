@@ -1,0 +1,41 @@
+/*-- scss:defaults --*/
+
+$primary: #416f8d;
+$secondary: #66727c;
+$body-bg: #fdfdfc;
+$body-color: #24313d;
+$link-color: #315b77;
+$navbar-bg: #fdfdfc;
+$navbar-fg: #24313d;
+$navbar-hl: #315b77;
+$footer-bg: #fdfdfc;
+$footer-fg: #66727c;
+$border-color: #e0e4e7;
+$code-block-bg: #f5f6f6;
+$code-bg: #f1f3f4;
+$code-color: #344c5e;
+$toc-color: #66727c;
+$toc-active-border: #416f8d;
+$toc-inactive-border: #e0e4e7;
+
+/*-- scss:rules --*/
+
+body.quarto-light {
+  --site-bg: #fdfdfc;
+  --site-surface: #ffffff;
+  --site-surface-soft: #f5f6f6;
+  --site-text: #24313d;
+  --site-muted: #66727c;
+  --site-accent: #416f8d;
+  --site-accent-dark: #315b77;
+  --site-border: #e0e4e7;
+  --site-navbar-bg: rgba(253, 253, 252, 0.97);
+  --site-accent-wash: rgba(65, 111, 141, 0.06);
+  --site-accent-wash-hover: rgba(65, 111, 141, 0.11);
+  --site-highlight-start: rgba(65, 111, 141, 0.08);
+  --site-highlight-end: rgba(65, 111, 141, 0.03);
+  --site-highlight-border: rgba(65, 111, 141, 0.16);
+  --site-category-border: #c6d0d6;
+  --site-toggle-bg: rgba(65, 111, 141, 0.06);
+  --site-toggle-hover-bg: rgba(65, 111, 141, 0.11);
+}
